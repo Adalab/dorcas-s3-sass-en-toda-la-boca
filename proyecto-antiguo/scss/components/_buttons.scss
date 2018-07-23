@@ -1,0 +1,45 @@
+.button--start {
+  text-decoration: none;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 129px;
+  height: 42px;
+  border: 1px solid $color-border;
+  border-radius: 21px;
+  background-color: $color-secundary;
+  color: $color-light;
+  text-transform: uppercase;
+  font-family: $font-family-primary;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-medium;
+}
+
+.button--adalab__img {
+  width: 124px;
+  margin-top: 10px;
+}
+
+.btn-select {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background: $color-light;
+  border: 1px solid $color-primary;
+  color: $color-primary;
+  font-size: $font-size-large;
+
+}
+
+.btn-twitter{
+  width: 181px;
+  height: 30px;
+  border-radius: 3px;
+  background-color: $blue-twitter;
+  font-family: $font-family-primary;
+  font-weight: $font-weight-light;
+  font-size: $font-size-small;
+  color: $color-light;
+  border-style: none;
+}

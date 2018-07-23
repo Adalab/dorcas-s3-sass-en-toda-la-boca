@@ -1,0 +1,354 @@
+
+
+/* SECCIÓN FOTO (Bismilah) */
+
+.section--top {
+  background: linear-gradient(to bottom, #dd0042, #ffd6f9); //añadir variables
+  width: vw;
+  padding: 10px 35px 30px 45px;
+}
+
+.button {
+  font-family: $font-family-primary;
+  color: $color-light;
+  border: 1px solid $color-light;
+  border-radius: 15px;
+  width: 75px;
+  height: 30px;
+  background-color: transparent;
+  padding: 5px;
+}
+
+.button__icon {
+  margin-right: 10px;
+}
+
+.section--top__card {
+  width: 240px;
+  height: 378px;
+  background-color: $color-light;
+  margin: auto;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.35);
+}
+
+.card__title {
+  display: block;
+  font-size: $font-size-large;
+  color: $color-tertiary;
+  font-weight: $font-weight-thick;
+  margin: 20px 14px 5px 20px;
+  padding-top: 5px;
+}
+
+.card__subtitle {
+  display: block;
+  color: $color-medium;
+  font-size: $font-size-medium;
+  font-weight: $font-weight-light;
+  margin: 0 67px 10px 20px;
+  width: 100%;
+}
+
+.photo {
+  width: 240px;
+  height: 200px;
+  background-color: lightgrey;
+}
+
+.card__media {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  margin: 10px 22px 10px 20px;
+}
+
+.card__media--icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  border: solid 2px $color-light-medium-dark;
+  margin-right: 10px;
+}
+
+.line {
+  width: 240px;
+  height: 2px;
+  margin-bottom: 10px;
+  opacity: 0.2;
+  background-color: $color-secundary;
+}
+
+.card__skills {
+  list-style: none;
+  width: 100%;
+}
+
+.card__skills--icon {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: $color-secundary;
+  text-align: center;
+  padding: 0 5px;
+  margin: 3px;
+}
+
+.icon__text {
+  font-size: $font-size-xsmall;
+  color: $color-light;
+  font-weight: $font-weight-light;
+  line-height: normal;
+  padding: 0 5px;
+}
+
+//SECCION RELLENA (eli y valeria)
+.section--stuffed {
+  width: 280px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.form__subtitle {
+  text-transform: uppercase;
+  font-size: $font-size-large;
+  font-family: $font-family-primary;
+  font-weight: $font-weight-medium;
+  color: $color-medium;
+  margin-bottom: 25px;
+  width: 280px;
+  margin-top: 10px;
+}
+
+.section-stuffed__icon {
+  color: $color-primary;
+  font-size: $font-size-large;
+  margin-right: 10px;
+  font-weight: $font-weight-light;
+}
+
+.section-stuffed__arrow {
+  margin-left: 204px;
+  font-size: $font-size-large;
+}
+
+.subsection--stuffed {
+  width: 281px;
+  margin: auto;
+  border: none;
+  border-bottom: solid $color-light-medium-light 1px;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.input--stuffed {
+  width: 280px;
+  height: 30px;
+  border: 1px solid $color-light-medium-dark;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  font-family: $font-family-primary;
+  font-size: $font-size-small;
+  padding-left: 9px;
+}
+
+.label--stuffed {
+  font-family: $font-family-primary;
+  font-size: $font-size-small;
+  color: $color-tertiary;
+}
+
+.div--stuffed__img {
+  display: flex;
+  width: 280px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+.input--stuffed__img {
+  width: 140px;
+  height: 30px;
+  background-color: $color-primary;
+  color: $color-light;
+  border-radius: 3px;
+  font-size: $font-size-small;
+  font-family: $font-family-primary;
+  border: none;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
+  margin-right: 20px;
+}
+
+.input__img-hiddenField {
+  display: none;
+}
+
+.box--previmg {
+  width: 30px;
+  height: 30px;
+  border: solid $color-light-medium-dark 1px;
+}
+
+.preview {
+  width: 100%;
+}
+
+
+.container__skills--stuffed {
+  display: flex;
+}
+
+.container__skills1 {
+  margin-top: 5px;
+  margin-bottom: 21px;
+}
+
+.container__skills2 {
+  margin-bottom: 30px;
+}
+
+.skills--stuffed {
+  width: 165px;
+  height: 30px;
+  background: $color-light;
+  border: 1px solid $color-light-medium-dark;
+  margin-right: 20px;
+  font-family: $font-family-primary;
+  font-size: $font-size-small;
+  text-transform: uppercase;
+  padding-left: 5px;
+}
+
+/* FORMULARIO */
+
+.form2--stuffed {
+  width: 281px;
+  margin: auto;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.form2__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form2__wrapper2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.form2__title {
+  font-size: $font-size-large;
+  font-family: $font-family-primary;
+  color: $color-medium;
+  text-transform: uppercase;
+}
+
+.form2__title--icon {
+  color: $color-primary;
+  margin-right: 12px;
+}
+
+.arrow--icon {
+  color: $color-medium;
+  width: 16px;
+  height: 18px;
+  font-size: $font-size-large;
+}
+
+.form2__button--container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form2__button {
+  background-color: $color-primary;
+  width: 199px;
+  height: 50px;
+  border-radius: 12px;
+  color: $color-light;
+  font-size: $font-size-large;
+  font-family: $font-family-primary;
+  font-weight: $font-weight-medium;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.35);
+}
+
+.button--icon {
+  margin-right: 10px;
+}
+
+.line2 {
+  margin-bottom: 30px;
+}
+
+.container-select{
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.icon-collapsible{
+
+  transition: all linear 5s;
+}
+
+.container__twitter{
+  border-bottom: solid $color-light-medium-light 1px;
+  border-top: solid $color-light-medium-light 1px;
+  padding: 20px 0 20px 0;
+
+}
+
+
+
+.twitter-title {
+  font-size: $font-size-large;
+  font-family: $font-family-primary;
+  color: $color-medium;
+  text-align: center;
+
+}
+
+.response{
+  text-align: center;
+}
+
+.link--response{
+   font-family: $font-family-primary;
+   color: $color-primary;
+   text-decoration: none;
+   cursor: pointer;
+   
+}
+.container__btn-twitter{
+  text-align: center;
+  margin-top: 10px;
+
+}
+
+.link-twitter{
+text-decoration: none;
+  font-size: $font-size-small;
+  font-family: $font-family-primary;
+  font-weight: $font-weight-light;
+  font-size: $font-size-small;
+  color: $color-light;
+}
+
+.disabled{
+  background-color: $color-light-medium-light;
+  
+}
