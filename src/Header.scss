@@ -1,0 +1,35 @@
+
+/* HEADER INDEX*/
+
+.header__page {
+  display: flex;
+  justify-content: center;
+}
+
+.header__container--logo {
+  margin-top: 94px;
+  margin-bottom: 35px;
+}
+
+.header__logo {
+  width: 250px;
+}
+
+
+
+
+/* HEADER TARJETA */
+
+.header--tarjeta {
+  padding: 30px 79px 30px 40px;
+  background-image: url(./images/bg-hearts2.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+}
+
+.header__logo--tarjeta {
+  width: 201px;
+  height: 51px;
+  background-color: white;
+}
