@@ -2,6 +2,7 @@ import React from 'react';
 import './Form.css';
 import Disena from './Disena';
 import Rellena from './Rellena';
+import Comparte from './Comparte';
 
 
 class Form extends React.Component {
@@ -11,6 +12,7 @@ class Form extends React.Component {
                 <form className="form" action="" method="post">   
                     <Disena/>
                     <Rellena/>
+                    <Comparte/>
                  </form>
             </div>
         )
