@@ -1,6 +1,7 @@
 import React from 'react';
 import './Form.css';
 import Disena from './Disena';
+import Rellena from './Rellena';
 
 
 class Form extends React.Component {
@@ -9,9 +10,9 @@ class Form extends React.Component {
             <div className="main__section-form">
                 <form className="form" action="" method="post">   
                     <Disena/>
+                    <Rellena/>
                  </form>
             </div>
-
         )
     }
 }
