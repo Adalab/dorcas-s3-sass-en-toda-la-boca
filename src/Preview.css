@@ -50,9 +50,9 @@
   background-color: lightgrey; }
 
 .card__media {
+  padding: 0;
   list-style: none;
   display: flex;
-  flex-direction: row;
   margin: 10px 22px 10px 20px; }
 
 .card__media--icon {
@@ -61,7 +61,7 @@
   align-items: center;
   width: 32px;
   height: 32px;
-  border-radius: 16px;
+  border-radius: 100%;
   border: solid 2px #a2deaf;
   margin-right: 10px; }
 
@@ -73,6 +73,7 @@
   background-color: #438792; }
 
 .card__skills {
+  padding: 0;
   list-style: none;
   width: 100%; }
 
@@ -191,3 +192,19 @@
   font-size: 14px;
   text-transform: uppercase;
   padding-left: 5px; }
+
+.primary-palette .card__title {
+  color: #114e4e; }
+
+.primary-palette .card__media--icon {
+  border: 2px solid #a2deaf; }
+
+.primary-palette .icon-card-color {
+  color: #114e4e; }
+
+.primary-palette .card__skills--icon {
+  background-color: #438792;
+  color: #fff; }
+
+a {
+  text-decoration: none; }
