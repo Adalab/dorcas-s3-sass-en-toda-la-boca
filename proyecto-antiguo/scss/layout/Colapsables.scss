@@ -1,0 +1,13 @@
+.collapsible__content {
+    display: none;
+  }
+  
+  .collapsible__label {
+    cursor: pointer;
+  }
+  
+  .collapsible--visible {
+    .collapsible__content {
+      display: block;
+    }
+  }

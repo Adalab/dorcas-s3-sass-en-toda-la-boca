@@ -1,0 +1,106 @@
+@charset "UTF-8";
+/* VARIABLES TIPOGRAFÍA */
+/* Tamaños */
+/* Familias */
+/* Grosor */
+.form2--stuffed {
+  width: 281px;
+  margin: auto;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 10px; }
+
+.form2__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; }
+
+.form2__wrapper2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+
+.form2__title {
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+  color: #54585a;
+  text-transform: uppercase; }
+
+.form2__title--icon {
+  color: #e17334;
+  margin-right: 12px; }
+
+.arrow--icon {
+  color: #54585a;
+  width: 16px;
+  height: 18px;
+  font-size: 18px; }
+
+.form2__button--container {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.form2__button {
+  background-color: #e17334;
+  width: 199px;
+  height: 50px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.35); }
+
+.button--icon {
+  margin-right: 10px; }
+
+.line2 {
+  margin-bottom: 30px; }
+
+.container-select {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+.icon-collapsible {
+  transition: all linear 5s; }
+
+.container__twitter {
+  border-bottom: solid #d8d8d8 1px;
+  border-top: solid #d8d8d8 1px;
+  padding: 20px 0 20px 0; }
+
+.twitter-title {
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+  color: #54585a;
+  text-align: center; }
+
+.response {
+  text-align: center; }
+
+.link--response {
+  font-family: "Open Sans", sans-serif;
+  color: #e17334;
+  text-decoration: none;
+  cursor: pointer; }
+
+.container__btn-twitter {
+  text-align: center;
+  margin-top: 10px; }
+
+.link-twitter {
+  text-decoration: none;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  color: #fff; }
+
+.disabled {
+  background-color: #d8d8d8; }
