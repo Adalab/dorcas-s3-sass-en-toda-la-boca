@@ -1,12 +1,19 @@
-import React, { Component } from 'react';
-//import logo from './logo.svg';
+import React, { Component, Fragment } from 'react';
 import './App.css';
+import Header from './Header';
+import Form from './Form';
 import Preview from './Preview';
+
 
 class App extends Component {
   render() {
     return (
-      <Preview/>
+      <Fragment>
+        <Header />
+        <Form />
+        <Preview/>
+      </Fragment>
+      
     );
   }
 }
