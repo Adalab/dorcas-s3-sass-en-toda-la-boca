@@ -1,18 +1,18 @@
-
 import React, { Component } from 'react';
-import './App.css';
+import './Footer.css';
+import logoAdalab from './images/logo-adalab.png';
+import logoQueens from './images/logo-queens.png';
+
 
 class Footer extends Component {
   render() {
     return (
-        <footer class="footer">
-            <span class="footer__span">Awesome profile-cards @2018</span>
-            <a href="http://adalab.es/" target="_blank" class="button-adalab">
-                <img src="images/logo-adalab.png" alt="enlace adalab" class="button--adalab__img">
-            </a>
-            <img src="images/logo-queens.png" alt="logo queens of hearts" class="logo-hearts__img">
+        <footer className="footer">  
+            <span className="footer__span">Awesome profile-cards @2018</span>
+            <a href="http://adalab.es/" className="button-adalab">  </a>
+                <img src={logoAdalab} alt="enlace adalab" className="button--adalab__img"/> 
+                <img src={logoQueens} alt="logo queens of hearts" className="logo-hearts__img"/>
         </footer>
-        
     );
   }
 }
