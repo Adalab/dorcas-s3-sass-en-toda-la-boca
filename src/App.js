@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import './App.css';
 import Header from './Header';
-import Form from './Form';
-import Preview from './Preview';
+import Main from './Main';
 
 
 class App extends Component {
@@ -10,8 +9,7 @@ class App extends Component {
     return (
       <Fragment>
         <Header />
-        <Form />
-        <Preview/>
+        <Main />
       </Fragment>
       
     );
