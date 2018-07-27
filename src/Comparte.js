@@ -1,7 +1,4 @@
 import React from 'react';
-import './Comparte.css';
-
-
 
 class Comparte extends React.Component {
     render() {
