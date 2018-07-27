@@ -9,13 +9,12 @@ import Preview from './Preview';
 class App extends Component {
   render() {
     return (
-      <Fragment>
+      <div className="page__wrapper">
         <Header />
         <Form />
         <Preview/>
         <Footer/>
-      </Fragment>
-      
+      </div>
     );
   }
 }
