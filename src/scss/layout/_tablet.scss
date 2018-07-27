@@ -1,15 +1,21 @@
-@import './sass/_variables.scss';
+//version tablet
+.collapsible__content {
+  display: none;
+}
 
-.main {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+.collapsible__label {
+  cursor: pointer;
+}
+
+.collapsible--visible {
+  .collapsible__content {
+    display: block;
+  }
 }
 
 @media all and (min-width: 768px) {
   .main__target {
-    background-image: url(./images/bg-hearts2.png);
+    background-image: url('../images/bg-hearts2.png');
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-evenly;
@@ -19,11 +25,13 @@
   }
   .main__section-card {
     height: 100%;
+    width: 100%;
   }
   .section--top {
     height: 812px;
     border-radius: 6px;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 }

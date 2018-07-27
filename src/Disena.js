@@ -1,5 +1,4 @@
 import React from 'react';
-import './Disena.css';
 
 class Disena extends React.Component {
     render() {

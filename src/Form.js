@@ -1,5 +1,4 @@
 import React from 'react';
-import './Form.css';
 import Disena from './Disena';
 import Rellena from './Rellena';
 import Comparte from './Comparte';
