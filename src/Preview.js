@@ -1,6 +1,7 @@
 import React from 'react';
 import './Preview.css';
-import Fontawesome from '@fortawesome/fontawesome-free/css/all.css';
+//import Fontawesome from '@fortawesome/fontawesome-free/css/all.css';
+//instalar la mierdi de fontawesome
 
 class Preview extends React.Component {
     render() {
