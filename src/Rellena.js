@@ -1,5 +1,4 @@
 import React from 'react';
-import './Rellena.css';
 
 
 class Rellena extends React.Component {
