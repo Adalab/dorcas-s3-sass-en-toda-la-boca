@@ -4,12 +4,25 @@ import Header from './Header';
 import Main from './Main';
 
 
+
 class App extends Component {
   constructor(props) {
     super(props);
-      this.state = {
+    this.state = {
+      data: {
+        palette: '',
+        typography: '',
+        name: 'pepe',
+        job: 'drogata',
+        phone: '',
+        email: '',
+        linkedin: '',
+        github: '',
+        photo: '',
         skills: []
-      }
+      },
+      skills: []
+    };
     this.returnSkillsInjson = this.returnSkillsInjson.bind(this);
     this.catchFetch();
   }
@@ -34,10 +47,11 @@ class App extends Component {
   }
   
   render() {
+    const {data} = this.state;
     return (
       <div className="page__wrapper">
         <Header />
-        <Main />
+        <Main data={data}/>
         <Footer/>
       </div>
     );

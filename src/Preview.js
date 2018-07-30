@@ -1,7 +1,10 @@
 import React from 'react';
+//import '@fortawesome/fontawesome-free/css/all.css';
 
 class Preview extends React.Component {
     render() {
+        console.log(this.props);
+        const {name,job} = this.props.data;
       return (
         <div className="main__section-card">
             <section className="section--top">
@@ -14,10 +17,10 @@ class Preview extends React.Component {
                     </div>
                     <div className="section--top__card primary-palette">
                         <span className="card__title font__style-font1 localcard--name" id="card--name">
-                            Nombre Apellido
+                            {name}
                         </span>
                         <span className="card__subtitle" id="card--job">
-                            Front-end developer
+                            {job}
                         </span>
                         <img className="photo" src="https://picsum.photos/240/200" alt="foto"/>
                         <ul className="card__media">
