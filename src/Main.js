@@ -4,9 +4,10 @@ import Preview from './Preview';
 
 class Main extends Component {
     render () {
+        const {data} = this.props;
         return(
             <div className="main__target">
-                <Preview />
+                <Preview data={data}/>
                 <Form />
             </div>
         )
