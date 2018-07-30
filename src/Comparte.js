@@ -1,9 +1,10 @@
 import React from 'react';
+import Colapsable from './Colapsable';
 
 class Comparte extends React.Component {
     render() {
         return (
-            <fieldset className="form2--stuffed">
+            <Colapsable>
           <div className="collapsible__container" data-valor="3">
             <div className="title__section-desing-container collapsible__label">
               <div className="title__section-title">
@@ -35,7 +36,7 @@ class Comparte extends React.Component {
               </div>
             </div>
           </div>
-        </fieldset>
+        </Colapsable>
         )
     }
 }

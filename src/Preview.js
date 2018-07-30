@@ -1,5 +1,4 @@
 import React from 'react';
-import Fontawesome from '@fortawesome/fontawesome-free/css/all.css';
 
 class Preview extends React.Component {
     render() {
