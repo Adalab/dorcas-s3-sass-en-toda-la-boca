@@ -10,7 +10,8 @@ class App extends Component {
       this.state = {
         skills: []
       }
-    this.catchFetch()
+    this.returnSkillsInjson = this.returnSkillsInjson.bind(this);
+    this.catchFetch();
   }
 
   catchFetch () {
@@ -19,18 +20,19 @@ class App extends Component {
         return response.json();
       }    
     )
-    .then(function (json){
-      this.setState({
-        skills: json.skills
-        
-      }
-        )
-      console.log(this.setState);
-    }
-   )
+    .then(this.returnSkillsInjson);
+     
   }
  
-
+  returnSkillsInjson(json){
+    console.log(json.skills);
+    this.setState({
+      skills: json.skills
+      
+    })
+   
+  }
+  
   render() {
     return (
       <div className="page__wrapper">
