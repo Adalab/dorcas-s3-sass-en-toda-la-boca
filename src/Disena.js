@@ -1,9 +1,10 @@
 import React from 'react';
+import Colapsable from './Colapsable'
 
 class Disena extends React.Component {
     render() {
         return (
-            <fieldset className="container__colors-fonts">
+            <Colapsable>
             <div className="collapsible__container collapsible--visible" data-valor="1" >
               <div className="title__section-desing-container collapsible__label">
                 <div className="title__section-title">
@@ -102,7 +103,7 @@ class Disena extends React.Component {
                 </div>
               </div>
             </div>
-          </fieldset>
+          </Colapsable>
         )
     }
 }
