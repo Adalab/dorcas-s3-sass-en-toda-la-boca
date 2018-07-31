@@ -4,12 +4,27 @@ import Colapsable from './Colapsable';
 class Rellena extends React.Component {
   constructor(props) {
     super(props);
-    
+    this.state = {
+      image: ''
+    }
+    this.image = '';
+    this.fileInput = React.createRef();
     this.handleInputImageButton = this.handleInputImageButton.bind(this);
+    this.handleInputFile = this.handleInputFile.bind(this);
   }
 
   handleInputImageButton () {
     console.log('image ok');
+  }
+
+  handleInputFile (e) {
+    const fr = new FileReader();
+    const file = e.currentTarget.files[0];
+
+    const inputClick = () => this.fileInput.click();
+    
+    fr.addEventListener('click', inputClick);
+    fr.readAsDataURL(file);
   }
 
     render() {
@@ -39,10 +54,10 @@ class Rellena extends React.Component {
   
                 <label className="label--stuffed" htmlFor="img--profile">Imagen de perfil</label>
                 <div className="div--stuffed__img">
-                  <button className="input--stuffed__img " type="button" onClick={this.handleInputImageButton}>Añadir imagen</button>
-                  <input className="input__img-hiddenField" name="photo" id="img--profile" type="file" required />
+                  <button className="input--stuffed__img " type="button" onClick={this.handleInputFile} >Añadir imagen</button>
+                  <input className="input__img-hiddenField" name="photo" id="img--profile" type="file" ref={this.fileInput} required />
                   <div className="box--previmg">
-                    <img className="preview" src="" alt="" />
+                    <img className="preview" src={this.state.image} alt="" />
                   </div>
                 </div>
   
