@@ -1,10 +1,18 @@
 import React from 'react';
 //import '@fortawesome/fontawesome-free/css/all.css';
 
+
+const paletteClasses= {
+    '1': "primary-palette",
+    '2': "secondary-palette",
+    '3': "tertiary-palette"
+  }
+  
 class Preview extends React.Component {
+
     render() {
         console.log(this.props);
-        const {name,job} = this.props.data;
+        const {name,job,palette} = this.props.data;
       return (
         <div className="main__section-card">
             <section className="section--top">
@@ -15,7 +23,7 @@ class Preview extends React.Component {
                             <span>RESET</span>
                         </button>
                     </div>
-                    <div className="section--top__card primary-palette">
+                    <div className={`section--top__card ${paletteClasses[palette]}`}>
                         <span className="card__title font__style-font1 localcard--name" id="card--name">
                             {name}
                         </span>
