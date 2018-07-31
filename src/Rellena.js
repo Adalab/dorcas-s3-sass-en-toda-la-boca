@@ -2,6 +2,16 @@ import React from 'react';
 import Colapsable from './Colapsable';
 
 class Rellena extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    this.handleInputImageButton = this.handleInputImageButton.bind(this);
+  }
+
+  handleInputImageButton () {
+    console.log('image ok');
+  }
+
     render() {
         return (
             <Colapsable>
@@ -29,7 +39,7 @@ class Rellena extends React.Component {
   
                 <label className="label--stuffed" htmlFor="img--profile">Imagen de perfil</label>
                 <div className="div--stuffed__img">
-                  <button className="input--stuffed__img " type="button">Añadir imagen</button>
+                  <button className="input--stuffed__img " type="button" onClick={this.handleInputImageButton}>Añadir imagen</button>
                   <input className="input__img-hiddenField" name="photo" id="img--profile" type="file" required />
                   <div className="box--previmg">
                     <img className="preview" src="" alt="" />
