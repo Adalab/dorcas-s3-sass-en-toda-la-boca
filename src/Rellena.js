@@ -17,7 +17,7 @@ class Rellena extends React.Component {
     this.handleInputImageButton = this.handleInputImageButton.bind(this);
     this.handleClickInput = this.handleClickInput.bind(this);
     this.handleInputFile = this.handleInputFile.bind(this);
-    this.handleNameChange = this.handleNameChange.bind(this);
+    
     this.handleJobChange = this.handleJobChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleTelChange = this.handleTelChange.bind(this);
@@ -46,11 +46,7 @@ class Rellena extends React.Component {
     fr.readAsDataURL(event.target.files[0]);
 }
 
-  handleNameChange (event) {
-    this.setState({
-      name: event.target.value
-    })
-  }
+  
 
   handleJobChange (event) {
     this.setState({
@@ -82,8 +78,9 @@ class Rellena extends React.Component {
     })
   }
 
-
     render() {
+      console.log('props', this.props)
+      const {data} = this.props;
         return (
             <Colapsable>
             <div className="collapsible__container collapsible--visible" data-valor="2">
@@ -101,7 +98,7 @@ class Rellena extends React.Component {
               <div className="collapsible__content">
   
                 <label className="label--stuffed" htmlFor="name">Nombre completo</label>
-                <input className="input--stuffed input--text local--name" data-elementos="card--name" placeholder="Ej: Sally Hill" id="complete--name" type="text" name="name" value={this.state.name} onChange={this.handleNameChange} />
+                <input className="input--stuffed input--text local--name" data-elementos="card--name" placeholder="Ej: Sally Hill" id="complete--name" type="text" name="name" value={data.name} onChange={this.props.actionToPerform} />
   
                 <label className="label--stuffed" htmlFor="job">Puesto</label>
                 <input className="input--stuffed input--text local--job" data-elementos="card--job" placeholder="Ej: Front-end unicorn" id="job"

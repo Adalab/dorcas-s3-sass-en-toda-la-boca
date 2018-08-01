@@ -42,7 +42,7 @@ class Preview extends React.Component {
                         </div>
                         <div className={`section--top__card ${paletteClasses[palette]}`}>
                             <span className={`card__title ${typographies[typography]} localcard--name`} id="card--name">
-                                {name}
+                                {name || 'Nombre Completo'}
                             </span>
                             <span className={`card__subtitle ${typographies[typography]}`} id="card--job">
                                 {job}

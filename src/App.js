@@ -10,8 +10,8 @@ class App extends Component {
       data: {
         palette: 1,
         typography: 4,
-        name: 'pepe',
-        job: 'drogata',
+        name: '',
+        job: '',
         phone: '',
         email: '',
         linkedin: '',
@@ -23,6 +23,18 @@ class App extends Component {
     };
     this.returnSkillsInjson = this.returnSkillsInjson.bind(this);
     this.catchFetch();
+    this.handleNameChange = this.handleNameChange.bind(this);
+  }
+
+  handleNameChange (event) {
+    console.log('this event', event.target.value);
+    
+    this.setState({
+      data: {
+        ...this.state.data,
+        name: event.target.value,
+      }
+    })
   }
 
   catchFetch () {
@@ -46,10 +58,12 @@ class App extends Component {
   
   render() {
     const {data} = this.state;
+    console.log('data', this)
+    const {handleNameChange} = this;
     return (
       <div className="page__wrapper">
         <Header />
-        <Main data={data}/>
+        <Main data={data} actionToPerform = {handleNameChange} />
         <Footer/>
       </div>
     );
