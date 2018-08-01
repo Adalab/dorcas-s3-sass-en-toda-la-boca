@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {
       data: {
         palette: 1,
-        typography: '',
+        typography: 4,
         name: 'pepe',
         job: 'drogata',
         phone: '',
@@ -17,7 +17,7 @@ class App extends Component {
         linkedin: '',
         github: '',
         photo: '',
-        skills: []
+        skills: ['CSS', 'html', 'JS']
       },
       skills: []
     };
