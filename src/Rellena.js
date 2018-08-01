@@ -7,9 +7,9 @@ class Rellena extends React.Component {
     this.state = {
       image: ''
     }
-    this.image = '';
     this.fileInput = React.createRef();
     this.handleInputImageButton = this.handleInputImageButton.bind(this);
+    this.handleClickInput = this.handleClickInput.bind(this);
     this.handleInputFile = this.handleInputFile.bind(this);
   }
 
@@ -17,15 +17,22 @@ class Rellena extends React.Component {
     console.log('image ok');
   }
 
-  handleInputFile (e) {
-    const fr = new FileReader();
-    const file = e.currentTarget.files[0];
-
-    const inputClick = () => this.fileInput.click();
-    
-    fr.addEventListener('click', inputClick);
-    fr.readAsDataURL(file);
+  handleClickInput(event) {
+    console.log(this.fileInput)
+    this.fileInput.current.click()
   }
+
+  handleInputFile (event) {
+    const fr = new FileReader();
+
+    const loadImage = () => {
+        this.setState ({image: fr.result});
+    }
+
+    console.log(event.target.files[0])
+    fr.addEventListener('load', loadImage);
+    fr.readAsDataURL(event.target.files[0]);
+}
 
     render() {
         return (
@@ -54,8 +61,8 @@ class Rellena extends React.Component {
   
                 <label className="label--stuffed" htmlFor="img--profile">Imagen de perfil</label>
                 <div className="div--stuffed__img">
-                  <button className="input--stuffed__img " type="button" onClick={this.handleInputFile} >Añadir imagen</button>
-                  <input className="input__img-hiddenField" name="photo" id="img--profile" type="file" ref={this.fileInput} required />
+                  <button className="input--stuffed__img " type="button" onClick={this.handleClickInput} >Añadir imagen</button>
+                  <input className="input__img-hiddenField" name="photo" id="img--profile" type="file" ref={this.fileInput} onChange={this.handleInputFile} required />
                   <div className="box--previmg">
                     <img className="preview" src={this.state.image} alt="" />
                   </div>
