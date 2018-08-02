@@ -24,6 +24,15 @@ class App extends Component {
     this.returnSkillsInjson = this.returnSkillsInjson.bind(this);
     this.catchFetch();
     this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleJobChange = this.handleJobChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handleTelChange = this.handleTelChange.bind(this);
+    this.handleLinkedinChange = this.handleLinkedinChange.bind(this);
+    this.handleGithubChange = this.handleGithubChange.bind(this);
+    this.fileInput = React.createRef();
+    this.handleInputImageButton = this.handleInputImageButton.bind(this);
+    this.handleClickInput = this.handleClickInput.bind(this);
+    this.handleInputFile = this.handleInputFile.bind(this);
   }
 
   handleNameChange (event) {
@@ -35,6 +44,92 @@ class App extends Component {
         name: event.target.value,
       }
     })
+  }
+
+  handleJobChange (event) {
+    this.setState({
+      data: {
+        ...this.state.data,
+        job: event.target.value,
+      }
+    })
+  }
+
+  handleEmailChange (event) {
+    this.setState({
+      data: {
+        ...this.state.data,
+        email: event.target.value
+      }
+    })
+  }
+
+  handleTelChange (event) {
+    this.setState({
+      data: {
+        ...this.state.data,
+        tel: event.target.value
+      }
+    })
+  }
+
+  handleLinkedinChange (event) {
+    this.setState({
+      data: {
+        ...this.state.data,
+        linkedin: event.target.value
+      }
+    })
+  }
+
+  handleGithubChange (event) {
+    this.setState({
+      data: {
+        ...this.state.data,
+        github: event.target.value
+      }
+    })
+  }
+
+  handleActions () {
+    const actionToPerform = {
+      name : this.handleNameChange,
+      job: this.handleJobChange,
+      email: this.handleEmailChange,
+      tel: this.handleTelChange,
+      linkedin: this.handleLinkedinChange,
+      github: this.handleGithubChange,
+    }
+    return actionToPerform;
+  }
+
+  handleInputImageButton () {
+    console.log('image ok');
+  }
+
+  handleClickInput(event) {
+    console.log(this.fileInput)
+    this.fileInput.current.click()
+  }
+
+  handleInputFile (event) {
+    const fr = new FileReader();
+
+    const loadImage = () => {
+        this.setState ({image: fr.result});
+    }
+
+    console.log(event.target.files[0])
+    fr.addEventListener('load', loadImage);
+    fr.readAsDataURL(event.target.files[0]);
+  }
+
+  handleImage () {
+    const chargeImage = {
+      click: this.handleClickInput,
+      input: this.handleInputFile,
+    }
+    return chargeImage;
   }
 
   catchFetch () {
@@ -58,12 +153,11 @@ class App extends Component {
   
   render() {
     const {data} = this.state;
-    console.log('data', this)
-    const {handleNameChange} = this;
+    //console.log('this app', this.handleActions)
     return (
       <div className="page__wrapper">
         <Header />
-        <Main data={data} actionToPerform = {handleNameChange} />
+        <Main data={data} actionToPerform = {this.handleActions()} chargeImage = {this.handleImage()} />
         <Footer/>
       </div>
     );

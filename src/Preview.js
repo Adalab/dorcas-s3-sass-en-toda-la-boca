@@ -28,8 +28,8 @@ class Preview extends React.Component {
     }
 
     render() {
-        console.log(this.props);
-        const { palette, typography ,name, job, phone, email, linkedin, github, skills} = this.props.data;
+        //console.log(this.props);
+        const { palette, typography ,name, job, phone, email, linkedin, github, photo, skills} = this.props.data;
         return (
             <div className="main__section-card">
                 <section className="section--top">
@@ -45,7 +45,7 @@ class Preview extends React.Component {
                                 {name || 'Nombre Completo'}
                             </span>
                             <span className={`card__subtitle ${typographies[typography]}`} id="card--job">
-                                {job}
+                                {job || 'Web Developer'}
                             </span>
                             <img className="photo" src="https://picsum.photos/240/200" alt="foto" />
                             <ul className="card__media">
