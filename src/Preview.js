@@ -81,7 +81,7 @@ class Preview extends React.Component {
                                     <span className={`icon__text ${typographies[typography]} `}>{skills[1]}</span>
                                 </li>
                                 <li className="card__skills--icon">
-                                    <span className={`icon__text ${typographies[typography]} `}>{skills[2]}</span>
+                                    <span className={`icon__text ${typographies[typography]} `}>{skills[2]} </span>
                                 </li>
                             </ul>
                         </div>

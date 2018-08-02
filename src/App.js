@@ -17,7 +17,7 @@ class App extends Component {
         linkedin: '',
         github: '',
         photo: '',
-        skills: ['CSS', 'html', 'JS']
+      skills: ['CSS', 'html', 'JS']
       },
       skills: []
     };
