@@ -29,8 +29,8 @@ class Preview extends React.Component {
     }
 
     render() {
-        console.log(this.props);
-        const { palette, typography ,name, job, phone, email, linkedin, github, skills} = this.props.data;
+        //console.log(this.props);
+        const { palette, typography ,name, job, phone, email, linkedin, github, photo, skills} = this.props.data;
         return (
             <div className="main__section-card">
                 <section className="section--top">
@@ -43,12 +43,12 @@ class Preview extends React.Component {
                         </div>
                         <div className={`section--top__card ${paletteClasses[palette]}`}>
                             <span className={`card__title ${typographies[typography]} localcard--name`} id="card--name">
-                                {name}
+                                {name || 'Nombre Completo'}
                             </span>
                             <span className={`card__subtitle ${typographies[typography]}`} id="card--job">
-                                {job}
+                                {job || 'Web Developer'}
                             </span>
-                            <img className="photo" src="https://picsum.photos/240/200" alt="foto" />
+                            <img className="photo" src={photo || "https://picsum.photos/240/200"} alt="foto" />
                             <ul className="card__media">
                                 <a className="localcard--phone" id="tlf" href={`tel:${phone}`}   target="_blank">
                                     <li className="card__media--icon">
@@ -82,7 +82,7 @@ class Preview extends React.Component {
                                     <span className={`icon__text ${typographies[typography]} `}>{skills[1]}</span>
                                 </li>
                                 <li className="card__skills--icon">
-                                    <span className={`icon__text ${typographies[typography]} `}>{skills[2]}</span>
+                                    <span className={`icon__text ${typographies[typography]} `}>{skills[2]} </span>
                                 </li>
                             </ul>
                         </div>
