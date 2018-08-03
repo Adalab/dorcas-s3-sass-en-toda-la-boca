@@ -65,7 +65,7 @@ App.propTypes = {
   email: PropTypes.string,
   linkedin: PropTypes.string,
   github: PropTypes.string
-  
+
 };
 
 export default App;

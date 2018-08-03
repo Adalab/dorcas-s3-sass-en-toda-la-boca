@@ -1,5 +1,6 @@
 import React from 'react';
 import Colapsable from './Colapsable';
+import PropTypes from 'prop-types';
 
 class Rellena extends React.Component {
   constructor(props) {
@@ -146,5 +147,15 @@ class Rellena extends React.Component {
         )
     }
 }
+Rellena.propTypes = {
+
+  name:PropTypes.string,
+  job: PropTypes.string,
+  phone: PropTypes.number,
+  email: PropTypes.string,
+  linkedin: PropTypes.string,
+  github: PropTypes.string
+
+};
 
 export default Rellena;
