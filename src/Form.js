@@ -2,7 +2,7 @@ import React from 'react';
 import Disena from './Disena';
 import Rellena from './Rellena';
 import Comparte from './Comparte';
-
+import PropTypes from 'prop-types';
 
 class Form extends React.Component {
     render() {
@@ -28,5 +28,16 @@ class Form extends React.Component {
         )
     }
 }
+
+Form.propTypes = {
+
+    name:PropTypes.string,
+    job: PropTypes.string,
+    phone: PropTypes.number,
+    email: PropTypes.string,
+    linkedin: PropTypes.string,
+    github: PropTypes.string
+  
+  };
 
 export default Form;
