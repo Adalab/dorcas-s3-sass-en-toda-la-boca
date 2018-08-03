@@ -10,19 +10,126 @@ class App extends Component {
       data: {
         palette: 1,
         typography: 4,
-        name: 'pepe',
-        job: 'drogata',
+        name: '',
+        job: '',
         phone: '',
         email: '',
         linkedin: '',
         github: '',
         photo: '',
-      skills: ['CSS', 'html', 'JS']
+        skills: ['CSS', 'html', 'JS'],
       },
-      skills: []
+      skills: [],
     };
     this.returnSkillsInjson = this.returnSkillsInjson.bind(this);
     this.catchFetch();
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleJobChange = this.handleJobChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handleTelChange = this.handleTelChange.bind(this);
+    this.handleLinkedinChange = this.handleLinkedinChange.bind(this);
+    this.handleGithubChange = this.handleGithubChange.bind(this);
+    this.fileInput = React.createRef();
+    this.handleClickInput = this.handleClickInput.bind(this);
+    this.handleInputFile = this.handleInputFile.bind(this);
+  }
+
+  handleNameChange (event) {
+    console.log('this event', event.target.value);
+    
+    this.setState({
+      data: {
+        ...this.state.data,
+        name: event.target.value,
+      }
+    })
+  }
+
+  handleJobChange (event) {
+    this.setState({
+      data: {
+        ...this.state.data,
+        job: event.target.value,
+      }
+    })
+  }
+
+  handleEmailChange (event) {
+    this.setState({
+      data: {
+        ...this.state.data,
+        email: event.target.value,
+      }
+    })
+  }
+
+  handleTelChange (event) {
+    this.setState({
+      data: {
+        ...this.state.data,
+        phone: event.target.value,
+      }
+    })
+  }
+
+  handleLinkedinChange (event) {
+    this.setState({
+      data: {
+        ...this.state.data,
+        linkedin: event.target.value,
+      }
+    })
+  }
+
+  handleGithubChange (event) {
+    this.setState({
+      data: {
+        ...this.state.data,
+        github: event.target.value,
+      }
+    })
+  }
+
+  handleActions () {
+    const actionToPerform = {
+      name : this.handleNameChange,
+      job: this.handleJobChange,
+      email: this.handleEmailChange,
+      phone: this.handleTelChange,
+      linkedin: this.handleLinkedinChange,
+      github: this.handleGithubChange,
+    }
+    return actionToPerform;
+  }
+
+  handleClickInput(event) {
+    console.log('image input', this.fileInput)
+      this.fileInput.current.click()
+  }
+
+  handleInputFile (event) {
+    const fr = new FileReader();
+
+    const loadImage = () => {
+        this.setState ({
+          data: {
+            ...this.state.data,
+            photo: fr.result,
+          }
+          });
+    }
+
+    console.log(event.target.files[0])
+    fr.addEventListener('load', loadImage);
+    fr.readAsDataURL(event.target.files[0]);
+  }
+
+  handleImage () {
+    const chargeImage = {
+      input: this.handleInputFile,
+      click: this.handleClickInput,
+    }
+    return chargeImage;
   }
 
   catchFetch () {
@@ -38,18 +145,21 @@ class App extends Component {
   returnSkillsInjson(json){
     console.log(json.skills);
     this.setState({
-      skills: json.skills
-      
+      skills: json.skills,
     })
-   
   }
   
   render() {
     const {data} = this.state;
+    //console.log('this app', this.handleActions)
     return (
       <div className="page__wrapper">
         <Header />
-        <Main data={data}/>
+        <Main 
+          data={data} 
+          actionToPerform = {this.handleActions()} 
+          chargeImage = {this.handleImage()} 
+          inputImage = {this.fileInput} />
         <Footer/>
       </div>
     );
