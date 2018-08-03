@@ -60,8 +60,8 @@ class Rellena extends React.Component {
                 <label className="label--stuffed" htmlFor="skills1">Habilidades (máximo 3)</label>
   
                 <div className="label--stuffed__container-select">
+  
                 </div>
-
                 <ul className="card__skills">
   
                 </ul>
