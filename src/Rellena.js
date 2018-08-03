@@ -2,7 +2,7 @@ import React from 'react';
 import Colapsable from './Colapsable';
 
 class Rellena extends React.Component {
-  
+
     render() {
       console.log('props',this.props)
       const {data} = this.props;
@@ -47,7 +47,7 @@ class Rellena extends React.Component {
                   type="email" name="email" value={data.email} onChange={actionToPerform.email} />
   
                 <label className="label--stuffed" htmlFor="phone">Teléfono</label>
-                <input className="input--stuffed input--href local--phone" data-href="tlf" data-type="tlf" placeholder="Ej:555-555-555" id="tlf" type="tel" name="phone" value={data.tel} onChange={actionToPerform.tel}/>
+                <input className="input--stuffed input--href local--phone" data-href="tlf" data-type="tlf" placeholder="Ej:555-555-555" id="tlf" type="tel" name="phone" value={data.phone} onChange={actionToPerform.phone}/>
   
                 <label className="label--stuffed" htmlFor="linkedin">Linkedin</label>
                 <input className="input--stuffed input--href local--linkedin" data-href="linkedin" data-type="linkedin" placeholder="Ej: sally-hill"

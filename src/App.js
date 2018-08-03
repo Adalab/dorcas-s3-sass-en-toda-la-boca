@@ -17,9 +17,9 @@ class App extends Component {
         linkedin: '',
         github: '',
         photo: '',
-        skills: ['CSS', 'html', 'JS']
+        skills: ['CSS', 'html', 'JS'],
       },
-      skills: []
+      skills: [],
     };
     this.returnSkillsInjson = this.returnSkillsInjson.bind(this);
     this.catchFetch();
@@ -58,7 +58,7 @@ class App extends Component {
     this.setState({
       data: {
         ...this.state.data,
-        email: event.target.value
+        email: event.target.value,
       }
     })
   }
@@ -67,7 +67,7 @@ class App extends Component {
     this.setState({
       data: {
         ...this.state.data,
-        tel: event.target.value
+        phone: event.target.value,
       }
     })
   }
@@ -76,7 +76,7 @@ class App extends Component {
     this.setState({
       data: {
         ...this.state.data,
-        linkedin: event.target.value
+        linkedin: event.target.value,
       }
     })
   }
@@ -85,7 +85,7 @@ class App extends Component {
     this.setState({
       data: {
         ...this.state.data,
-        github: event.target.value
+        github: event.target.value,
       }
     })
   }
@@ -95,7 +95,7 @@ class App extends Component {
       name : this.handleNameChange,
       job: this.handleJobChange,
       email: this.handleEmailChange,
-      tel: this.handleTelChange,
+      phone: this.handleTelChange,
       linkedin: this.handleLinkedinChange,
       github: this.handleGithubChange,
     }
@@ -114,7 +114,7 @@ class App extends Component {
         this.setState ({
           data: {
             ...this.state.data,
-            photo: fr.result
+            photo: fr.result,
           }
           });
     }
@@ -145,7 +145,7 @@ class App extends Component {
   returnSkillsInjson(json){
     console.log(json.skills);
     this.setState({
-      skills: json.skills
+      skills: json.skills,
     })
   }
   
