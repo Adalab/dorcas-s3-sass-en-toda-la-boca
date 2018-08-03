@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Footer from './Footer';
 import Header from './Header';
 import Main from './Main';
 
@@ -17,7 +16,7 @@ class App extends Component {
         linkedin: '',
         github: '',
         photo: '',
-      skills: ['CSS', 'html', 'JS']
+        skills: ['CSS', 'html', 'JS']
       },
       skills: []
     };
@@ -25,32 +24,31 @@ class App extends Component {
     this.catchFetch();
   }
 
-  catchFetch () {
+  catchFetch() {
     fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
       .then(function (response) {
         return response.json();
-      }    
-    )
-    .then(this.returnSkillsInjson);
-     
+      }
+      )
+      .then(this.returnSkillsInjson);
+
   }
- 
-  returnSkillsInjson(json){
+
+  returnSkillsInjson(json) {
     console.log(json.skills);
     this.setState({
       skills: json.skills
-      
+
     })
-   
+
   }
-  
+
   render() {
-    const {data} = this.state;
+    const { data } = this.state;
     return (
       <div className="page__wrapper">
         <Header />
-        <Main data={data}/>
-        <Footer/>
+        <Main data={data} />
       </div>
     );
   }
