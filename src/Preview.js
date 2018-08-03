@@ -7,7 +7,7 @@ const paletteClasses= {
     '2': "secondary-palette",
     '3': "tertiary-palette",
     '4': "hearts-palette"
-  }
+}
   
 const typographies ={
     '1': 'font__style-font1',
@@ -28,8 +28,8 @@ class Preview extends React.Component {
     }
 
     render() {
-        console.log('imagen?',this.props);
-        const { palette, typography ,name, job, phone, email, linkedin, github, skills} = this.props.data;
+        //console.log(this.props);
+        const { palette, typography ,name, job, phone, email, linkedin, github, photo, skills} = this.props.data;
         return (
             <div className="main__section-card">
                 <section className="section--top">
@@ -42,12 +42,12 @@ class Preview extends React.Component {
                         </div>
                         <div className={`section--top__card ${paletteClasses[palette]}`}>
                             <span className={`card__title ${typographies[typography]} localcard--name`} id="card--name">
-                                {name}
+                                {name || 'Nombre Completo'}
                             </span>
                             <span className={`card__subtitle ${typographies[typography]}`} id="card--job">
-                                {job}
+                                {job || 'Web Developer'}
                             </span>
-                            <img className="photo" src="https://picsum.photos/240/200" alt="foto" />
+                            <img className="photo" src={photo || "https://picsum.photos/240/200"} alt="foto" />
                             <ul className="card__media">
                                 <a className="localcard--phone" id="tlf" href={`tel:${phone}`}   target="_blank">
                                     <li className="card__media--icon">
