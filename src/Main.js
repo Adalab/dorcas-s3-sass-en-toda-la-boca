@@ -4,7 +4,7 @@ import Preview from './Preview';
 
 class Main extends Component {
     render () {
-        const {data} = this.props;
+        const {data,skills} = this.props;
         const {actionToPerform} = this.props;
         const {chargeImage} = this.props;
         const {inputImage} = this.props;
@@ -13,6 +13,7 @@ class Main extends Component {
             <div className="main__target">
                 <Preview data={data}/>
                 <Form  
+                    skills={skills}
                     data={data} 
                     actionToPerform = {actionToPerform} 
                     chargeImage = {chargeImage}

@@ -6,7 +6,7 @@ import Comparte from './Comparte';
 
 class Form extends React.Component {
     render() {
-        const {data} = this.props;
+        const {data,skills} = this.props;
         const {actionToPerform} = this.props;
         const {chargeImage} = this.props;
         const {inputImage} = this.props;
@@ -17,6 +17,7 @@ class Form extends React.Component {
                 <form className="form" action="" method="post"> 
                     <Disena/>
                     <Rellena 
+                        skills={skills}
                         data={data} 
                         actionToPerform = {actionToPerform} 
                         chargeImage = {chargeImage}
