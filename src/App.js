@@ -30,7 +30,6 @@ class App extends Component {
     this.handleLinkedinChange = this.handleLinkedinChange.bind(this);
     this.handleGithubChange = this.handleGithubChange.bind(this);
     this.fileInput = React.createRef();
-    this.handleInputImageButton = this.handleInputImageButton.bind(this);
     this.handleClickInput = this.handleClickInput.bind(this);
     this.handleInputFile = this.handleInputFile.bind(this);
   }
@@ -103,20 +102,21 @@ class App extends Component {
     return actionToPerform;
   }
 
-  handleInputImageButton () {
-    console.log('image ok');
-  }
-
   handleClickInput(event) {
-    console.log(this.fileInput)
-    this.fileInput.current.click()
+    console.log('image input', this.fileInput)
+      this.fileInput.current.click()
   }
 
   handleInputFile (event) {
     const fr = new FileReader();
 
     const loadImage = () => {
-        this.setState ({image: fr.result});
+        this.setState ({
+          data: {
+            ...this.state.data,
+            photo: fr.result
+          }
+          });
     }
 
     console.log(event.target.files[0])
@@ -126,8 +126,8 @@ class App extends Component {
 
   handleImage () {
     const chargeImage = {
-      click: this.handleClickInput,
       input: this.handleInputFile,
+      click: this.handleClickInput,
     }
     return chargeImage;
   }
@@ -146,9 +146,7 @@ class App extends Component {
     console.log(json.skills);
     this.setState({
       skills: json.skills
-      
     })
-   
   }
   
   render() {
@@ -157,7 +155,11 @@ class App extends Component {
     return (
       <div className="page__wrapper">
         <Header />
-        <Main data={data} actionToPerform = {this.handleActions()} chargeImage = {this.handleImage()} />
+        <Main 
+          data={data} 
+          actionToPerform = {this.handleActions()} 
+          chargeImage = {this.handleImage()} 
+          inputImage = {this.fileInput} />
         <Footer/>
       </div>
     );

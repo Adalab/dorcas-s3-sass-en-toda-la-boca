@@ -7,11 +7,17 @@ class Main extends Component {
         const {data} = this.props;
         const {actionToPerform} = this.props;
         const {chargeImage} = this.props;
+        const {inputImage} = this.props;
         //console.log('this main', actionToPerform)
         return(
             <div className="main__target">
                 <Preview data={data}/>
-                <Form  data={data} actionToPerform = {actionToPerform} chargeImage = {chargeImage} />
+                <Form  
+                    data={data} 
+                    actionToPerform = {actionToPerform} 
+                    chargeImage = {chargeImage}
+                    inputImage = {inputImage} 
+                />
             </div>
         )
     }
