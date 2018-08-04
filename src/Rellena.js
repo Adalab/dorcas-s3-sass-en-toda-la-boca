@@ -1,5 +1,6 @@
 import React from 'react';
 import Colapsable from './Colapsable';
+import Button from './Button';
 import PropTypes from 'prop-types';
 
 class Rellena extends React.Component {
@@ -61,7 +62,7 @@ class Rellena extends React.Component {
                 <label className="label--stuffed" htmlFor="skills1">Habilidades (máximo 3)</label>
   
                 <div className="label--stuffed__container-select">
-  
+                  <Button />
                 </div>
                 <ul className="card__skills">
   

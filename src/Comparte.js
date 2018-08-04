@@ -20,7 +20,7 @@ class Comparte extends React.Component {
   render() {
     return (
       <Colapsable>
-        <div className="collapsible__container collapsible--visible" data-valor="3">
+        <div className="collapsible__container" data-valor="3">
           <div className="title__section-desing-container collapsible__label">
             <div className="title__section-title">
               <legend className="title__section-desing-title ">
