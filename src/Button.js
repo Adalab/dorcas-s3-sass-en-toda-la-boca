@@ -11,7 +11,7 @@ class Button extends React.Component {
     }
 
     render (){
-        return <button type="button" onClick={this.handleAddSkills} >Hola </button> 
+        return <button className="btn-select" type="button" onClick={this.handleAddSkills} > <i className="fas fa-plus"></i> </button> 
     }
 }
 export default Button;

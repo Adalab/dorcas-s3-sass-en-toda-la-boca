@@ -151,13 +151,15 @@ class App extends Component {
   }
   
   render() {
-    const {data} = this.state;
+    const {data, skills} = this.state;
+    // console.log('aqui???',skills);
     //console.log('this app', this.handleActions)
     return (
       <div className="page__wrapper">
         <Header />
         <Main 
-          data={data} 
+          data={data}
+          skills={skills}
           actionToPerform = {this.handleActions()} 
           chargeImage = {this.handleImage()} 
           inputImage = {this.fileInput} />

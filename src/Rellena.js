@@ -1,5 +1,6 @@
 import React from 'react';
 import Colapsable from './Colapsable';
+import SelectOptions from './SelectOptions';
 import Button from './Button';
 import PropTypes from 'prop-types';
 
@@ -7,11 +8,10 @@ class Rellena extends React.Component {
 
     render() {
       console.log('props',this.props)
-      const {data} = this.props;
+      const {data,skills} = this.props;
       const {actionToPerform} = this.props;
       const {chargeImage} = this.props;
       const {inputImage} = this.props;
-
         return (
             <Colapsable>
             <div className="collapsible__container collapsible--visible" data-valor="2">
@@ -62,6 +62,10 @@ class Rellena extends React.Component {
                 <label className="label--stuffed" htmlFor="skills1">Habilidades (máximo 3)</label>
   
                 <div className="label--stuffed__container-select">
+
+                  <SelectOptions
+                    skills={skills}
+                  />
                   <Button />
                 </div>
                 <ul className="card__skills">
