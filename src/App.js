@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Footer from './Footer';
 import Header from './Header';
 import Main from './Main';
+import PropTypes from 'prop-types';
 
 class App extends Component {
   constructor(props) {
@@ -165,5 +166,16 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+
+  name:PropTypes.string,
+  job: PropTypes.string,
+  phone: PropTypes.number,
+  email: PropTypes.string,
+  linkedin: PropTypes.string,
+  github: PropTypes.string
+
+};
 
 export default App;

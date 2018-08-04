@@ -1,5 +1,6 @@
 import React from 'react';
 import Colapsable from './Colapsable'
+import PropTypes from 'prop-types';
 
 class Disena extends React.Component {
     render() {
@@ -107,6 +108,17 @@ class Disena extends React.Component {
         )
     }
 }
+
+Disena.propTypes = {
+
+  name:PropTypes.string,
+  job: PropTypes.string,
+  phone: PropTypes.number,
+  email: PropTypes.string,
+  linkedin: PropTypes.string,
+  github: PropTypes.string
+
+};
 
 export default Disena;
 
