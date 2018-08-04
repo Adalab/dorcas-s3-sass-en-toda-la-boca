@@ -1,5 +1,6 @@
 import React from 'react';
 import '@fortawesome/fontawesome-free/css/all.css';
+import PropTypes from 'prop-types';
 
 
 const paletteClasses= {
@@ -91,5 +92,16 @@ class Preview extends React.Component {
         );
     }
 }
+
+Preview.propTypes = {
+
+    name:PropTypes.string,
+    job: PropTypes.string,
+    phone: PropTypes.number,
+    email: PropTypes.string,
+    linkedin: PropTypes.string,
+    github: PropTypes.string
+  
+  };
 
 export default Preview;
