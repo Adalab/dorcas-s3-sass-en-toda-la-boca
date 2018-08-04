@@ -1,6 +1,7 @@
 import React from 'react';
 import Colapsable from './Colapsable';
 import SelectOptions from './SelectOptions';
+import Button from './Button';
 import PropTypes from 'prop-types';
 
 class Rellena extends React.Component {
@@ -63,9 +64,9 @@ class Rellena extends React.Component {
                 <div className="label--stuffed__container-select">
 
                   <SelectOptions
-                  skills={skills}
+                    skills={skills}
                   />
-  
+                  <Button />
                 </div>
                 <ul className="card__skills">
   

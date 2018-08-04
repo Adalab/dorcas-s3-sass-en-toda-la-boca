@@ -5,7 +5,7 @@ class SelectOptions extends React.Component {
     render(){
         const {skills} = this.props;
         return(
-            <select name="" id="">
+            <select className="skills--stuffed" name="" id="">
                 {skills.map(function(skill,index){
                     return(<option value="" key={index}>{skill}</option>);
                 })}
