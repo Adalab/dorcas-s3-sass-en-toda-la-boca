@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 class Form extends React.Component {
     render() {
-        const {data,skills} = this.props;
+        const {data,skills,counter} = this.props;
         const {actionToPerform} = this.props;
         const {chargeImage} = this.props;
         const {inputImage} = this.props;
@@ -20,6 +20,7 @@ class Form extends React.Component {
                 <form className="form" action="" method="post"> 
                     <Disena/>
                     <Rellena 
+                        counter = {counter}
                         classPlus = {classPlus}
                         classMinus={classMinus}
                         divSkills={divSkills}

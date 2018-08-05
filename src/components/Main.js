@@ -4,7 +4,7 @@ import Preview from './Preview';
 
 class Main extends Component {
     render () {
-        const {data,skills} = this.props;
+        const {data,skills,counter} = this.props;
         const {actionToPerform} = this.props;
         const {chargeImage} = this.props;
         const {inputImage} = this.props;
@@ -12,11 +12,11 @@ class Main extends Component {
         const {divSkills}=this.props;
         const {classMinus, classPlus} = this.props;
         //console.log('this main', actionToPerform)
-        console.log('this.stateeeeee2',this.props);
         return(
             <div className="main__target">
                 <Preview data={data}/>
                 <Form 
+                    counter={counter}
                     classPlus = {classPlus}
                     classMinus={classMinus}
                     divSkills={divSkills}

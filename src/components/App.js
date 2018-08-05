@@ -21,11 +21,13 @@ class App extends Component {
         skills: ['CSS', 'html', 'JS'],
       },
       skills: [],
-      countSkills: 1,
+      countSkills: 2,
       divSkills:[1],
       classPlus:'fas fa-plus',
       classMinus:'fas fa-minus',
     };
+    console.log('mierda publica',this.state.divSkills);
+
     this.returnSkillsInjson = this.returnSkillsInjson.bind(this);
     this.catchFetch();
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -149,35 +151,41 @@ class App extends Component {
   }
  
   returnSkillsInjson(json){
-    console.log(json.skills);
     this.setState({
       skills: json.skills,
     })
   }
 
   handleAddSkills(event){
-    console.log('if class === + haz esto:');
+    console.log('aqui tenemos divskills.length',this.state.divSkills.length);
+    console.log('event.target',event.target);
     if(this.state.divSkills.length < 3){
       this.setState({
         countSkills: this.state.countSkills + 1,
         divSkills: [...this.state.divSkills, this.state.countSkills],
-      })
+      },()=>console.log('actualizado',this.state))
+      console.log('mierda publica',this.state.divSkills);
     } else {
       alert('Ey no puedes poner mas de 3 habilidades!!');
     }
-    console.log('else haz esto: this.setState');
   }
   
+  // handleRemoveSkills = itemToRemove => {
+  //   this.setState({
+  //     skills: this.state.pokemons.filter(item => item !== itemToRemove),
+  //   });
+  // };
+
   render() {
     
     const {data, skills} = this.state;
     // console.log('aqui???',skills);
     //console.log('this app', this.handleActions)
-    console.log('this.stateeeeee1',this.state);
     return (
       <div className="page__wrapper">
         <Header />
         <Main 
+          counter= {this.state.countSkills}
           classPlus={this.state.classPlus}
           classMinus={this.state.classMinus}
           data={data}
