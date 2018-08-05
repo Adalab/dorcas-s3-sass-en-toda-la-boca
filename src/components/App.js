@@ -40,6 +40,8 @@ class App extends Component {
     this.handleClickInput = this.handleClickInput.bind(this);
     this.handleInputFile = this.handleInputFile.bind(this);
     this.handleAddSkills = this.handleAddSkills.bind(this);
+    this.handleRemoveSkills = this.handleRemoveSkills.bind(this);
+
   }
 
   handleNameChange (event) {
@@ -156,18 +158,38 @@ class App extends Component {
     })
   }
 
+  handleRemoveSkills=(event)=>{
+    this.setState({
+      countSkills: this.state.countSkills -1,
+    })
+  console.log(this.state.countSkills)
+    console.log('Esto llega a removeskills');
+    console.dir( event.target.parentElement);
+    const k = event.currentTarget.parentElement;
+    k.parentElement.removeChild(k);
+
+  // event.target.parentElement.removeChild(event.target.firstChild) 
+  }
+
   handleAddSkills(event){
     console.log('aqui tenemos divskills.length',this.state.divSkills.length);
     console.log('event.target',event.target);
+
+    if (event.target.classList.contains ('fa-minus')){ //averiguar  como meterlo todo en un IF
+      this.handleRemoveSkills(event);
+    
+    }
+     if (event.target.classList.contains ('Minus')){ //averiguar  como meterlo todo en un IF
+        this.handleRemoveSkills(event);
+      }
+
     if(this.state.divSkills.length < 3){
       this.setState({
         countSkills: this.state.countSkills + 1,
         divSkills: [...this.state.divSkills, this.state.countSkills],
       },()=>console.log('actualizado',this.state))
-      console.log('mierda publica',this.state.divSkills);
-    } else {
-      alert('Ey no puedes poner mas de 3 habilidades!!');
-    }
+    } 
+   
   }
   
   // handleRemoveSkills = itemToRemove => {

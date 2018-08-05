@@ -16,7 +16,7 @@ class Skills extends React.Component {
         const Minus = 'Minus';
         
 
-        console.log('estamos en casa de loretus',this.props)
+      
         return (
             <div>
                 {divSkills.map( (index)=>{

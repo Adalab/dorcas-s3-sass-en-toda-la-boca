@@ -23,6 +23,7 @@ class Button extends React.Component {
         const {classButton} = this.props;
         const {divSkills} = this.props;
         const {buttonClass} = this.props;
+
         
         // if(divSkills.length === 1){
         //     return (
