@@ -166,9 +166,8 @@ class App extends Component {
     console.log('Esto llega a removeskills');
     console.dir( event.target.parentElement);
     const k = event.currentTarget.parentElement;
-    k.parentElement.removeChild(k);
+    k.parentElement.removeChild(k); //elimino el DIV con el select y el botton.
 
-  // event.target.parentElement.removeChild(event.target.firstChild) 
   }
 
   handleAddSkills(event){
