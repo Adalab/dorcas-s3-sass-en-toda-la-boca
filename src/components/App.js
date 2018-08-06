@@ -163,11 +163,18 @@ class App extends Component {
     console.log('Esto llega a removeskills');
     console.dir( event.target.parentElement);
     if (this.state.countSkills>2){
+      if (this.state.countSkills===3){
+      console.log('en este numero tenfo que cambiar a +: ',this.state.countSkills);
+      alert('Debes añadir al menos 1')
+    }
     const k = event.currentTarget.parentElement;
     k.parentElement.removeChild(k); 
-    }
+    
+    
+      
     }//elimino el DIV con el select y el botton.
 
+  }
 
   handleAddSkills(event){
     // console.log('aqui tenemos divskills.length',this.state.divSkills.length);
