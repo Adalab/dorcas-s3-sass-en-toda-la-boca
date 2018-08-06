@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import logo from './images/awesome-p-c.svg';
+import logo from '../images/awesome-p-c.svg';
 
 class Welcome extends Component {
     render() {
