@@ -159,34 +159,42 @@ class App extends Component {
   }
 
   handleRemoveSkills=(event)=>{
-    this.setState({
-      countSkills: this.state.countSkills -1,
-    })
-  console.log(this.state.countSkills)
+    console.log(this.state.countSkills)
     console.log('Esto llega a removeskills');
     console.dir( event.target.parentElement);
+    if (this.state.countSkills>2){
     const k = event.currentTarget.parentElement;
-    k.parentElement.removeChild(k); //elimino el DIV con el select y el botton.
+    k.parentElement.removeChild(k); 
+    }
+    }//elimino el DIV con el select y el botton.
 
-  }
 
   handleAddSkills(event){
-    console.log('aqui tenemos divskills.length',this.state.divSkills.length);
-    console.log('event.target',event.target);
+    // console.log('aqui tenemos divskills.length',this.state.divSkills.length);
+    // console.log('event.target',event.target);
+    
 
     if (event.target.classList.contains ('fa-minus')){ //averiguar  como meterlo todo en un IF
-      this.handleRemoveSkills(event);
-    
+      this.setState({
+        countSkills: this.state.countSkills -1,
+      },this.handleRemoveSkills(event));
+      ()=>console.log('actualizado2',this.state.divSkills)
     }
      if (event.target.classList.contains ('Minus')){ //averiguar  como meterlo todo en un IF
-        this.handleRemoveSkills(event);
+        
+        this.setState({
+          countSkills: this.state.countSkills -1,
+        },this.handleRemoveSkills(event));
+        ()=>console.log('actualizado2',this.state.divSkills)
       }
 
     if(this.state.divSkills.length < 3){
+     
+      console.log('holaholahola',this.state.countSkills)
       this.setState({
         countSkills: this.state.countSkills + 1,
         divSkills: [...this.state.divSkills, this.state.countSkills],
-      },()=>console.log('actualizado',this.state))
+      },()=>console.log('actualizado',this.state.divSkills))
     } 
    
   }
