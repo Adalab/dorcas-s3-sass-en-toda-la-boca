@@ -21,7 +21,7 @@ class Welcome extends Component {
                         <li class="list__element"><i class="far fa-keyboard list__element--icon"></i>Rellena</li>
                         <li class="list__element"><i class="fas fa-share-alt list__element--icon"></i>Comparte</li>
                     </ul>
-                    <Link to='/app'>
+                    <Link to='/cardgenerator'>
                         <a href="tarjeta.html" class="button--start">comenzar</a>
                     </Link>
                 </main>
