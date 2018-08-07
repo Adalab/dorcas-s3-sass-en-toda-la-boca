@@ -26,7 +26,6 @@ class CardGenerator extends Component {
       classMinus:'fas fa-minus',
     };
     this.returnSkillsInjson = this.returnSkillsInjson.bind(this);
-    this.catchFetch();
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleJobChange = this.handleJobChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -137,15 +136,16 @@ class CardGenerator extends Component {
     return chargeImage;
   }
 
-  catchFetch() {
+  componentDidMount() {
     fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
+    
       .then(function (response) {
         return response.json();
       }
       )
       .then(this.returnSkillsInjson);
-
   }
+
 
   returnSkillsInjson(json) {
     console.log(json.skills);
