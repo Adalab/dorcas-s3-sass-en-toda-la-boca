@@ -13,12 +13,16 @@ class Form extends React.Component {
         const {addSkills} = this.props;
         const {divSkills} = this.props;
         const {classMinus, classPlus} = this.props;
+        const {handleRadioColorClick} = this.props;
         //console.log('this form', actionToPerform)
         return (
             // clases sin usar en css: "main__section-form" "form"
             <div className="main__section-form">
                 <form className="form" action="" method="post"> 
-                    <Disena/>
+                    <Disena
+                        handleRadioColorClick= {handleRadioColorClick} 
+                        data={data} 
+                    />
                     <Rellena 
                         classPlus = {classPlus}
                         classMinus={classMinus}
