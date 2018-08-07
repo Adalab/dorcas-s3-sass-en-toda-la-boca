@@ -5,24 +5,24 @@ import logo from '../images/awesome-p-c.svg';
 class Welcome extends Component {
     render() {
         return (
-            <div class="page__wrapper">
-                <header class="header__page">
-                    <div class="header__container--logo">
-                        <img class="header__logo" src={logo} alt="Logotipo" />
+            <div className="page__wrapper">
+                <header className="header__page">
+                    <div className="header__container--logo">
+                        <img className="header__logo" src={logo} alt="Logotipo" />
                     </div>
                 </header>
-                <main class="main">
-                    <div class="container__main--title">
-                        <h1 class="main__title">Crea tu tarjeta de visita</h1>
-                        <p class="main__subtitle">Crea mejores contactos profesionales de forma fácil y cómoda.</p>
+                <main className="main">
+                    <div className="container__main--title">
+                        <h1 className="main__title">Crea tu tarjeta de visita</h1>
+                        <p className="main__subtitle">Crea mejores contactos profesionales de forma fácil y cómoda.</p>
                     </div>
-                    <ul class="list">
-                        <li class="list__element"><i class="far fa-object-ungroup list__element--icon"></i>Diseña</li>
-                        <li class="list__element"><i class="far fa-keyboard list__element--icon"></i>Rellena</li>
-                        <li class="list__element"><i class="fas fa-share-alt list__element--icon"></i>Comparte</li>
+                    <ul className="list">
+                        <li className="list__element"><i className="far fa-object-ungroup list__element--icon"></i>Diseña</li>
+                        <li className="list__element"><i className="far fa-keyboard list__element--icon"></i>Rellena</li>
+                        <li className="list__element"><i className="fas fa-share-alt list__element--icon"></i>Comparte</li>
                     </ul>
                     <Link to='/cardgenerator'>
-                        <a href="tarjeta.html" class="button--start">comenzar</a>
+                        <a className="button--start">comenzar</a>
                     </Link>
                 </main>
             </div>

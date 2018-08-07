@@ -6,9 +6,9 @@ class Colapsable extends React.Component {
         super(props);
         this.state = {
             visible: '',
-            arrow: 'fas fa-chevron-down icon-chevron-down-desing icon-collapsible'
+            arrow: 'down',
         }
-
+        
         this.handleColapsable = this.handleColapsable.bind(this);
     }
 
@@ -17,7 +17,7 @@ class Colapsable extends React.Component {
             visible: (prevState.visible === '') ? 'collapsible--visible' : ''
         }));
         this.setState((prevState) => ({
-            arrow: (prevState.arrow === 'fas fa-chevron-down icon-chevron-down-desing icon-collapsible') ? 'fas fa-chevron-up icon-chevron-up-desing icon-collapsible' : 'fas fa-chevron-down icon-chevron-down-desing icon-collapsible'
+            arrow: (prevState.arrow === 'down') ? 'up' : 'down'
         }));
     }
 
@@ -33,7 +33,7 @@ class Colapsable extends React.Component {
                                 </span>{this.props.title}</legend>
                         </div>
                         <div className="title__section-icon">
-                            <i className={this.state.arrow} data-valor="1"></i>
+                            <i className={`fas fa-chevron-${this.state.arrow} icon-chevron-down-desing icon-collapsible`} data-valor="1"></i>
                         </div>
                     </div>
                     {this.props.children}
