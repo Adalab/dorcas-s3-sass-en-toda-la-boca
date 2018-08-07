@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 class Disena extends React.Component {
     render() {
-      const {handleRadioColorClick} = this.props;
+      const {handleRadioColorClick, handleRadioFontClick} = this.props;
         return (
             <Colapsable>
             <div className="collapsible__container collapsible--visible" data-valor="1" >
@@ -74,28 +74,28 @@ class Disena extends React.Component {
                   </div>
                   <div className="input__design">
                     <label className="block first-block" htmlFor="style-fonts1">
-                      <input className="radio-fonts select-style" type="radio" value="1" id="style-fonts1" name="typography"/>
+                      <input className="radio-fonts select-style" type="radio" value="1" id="style-fonts1" name="typography" onClick={handleRadioFontClick}/>
                       <span className="checkmark"></span>
                       <div className="radio__options">
                         <label htmlFor="style-fonts" className="font__style-font1">ubuntu</label>
                       </div>
                     </label>
                     <label className="block" htmlFor="style-fonts2">
-                      <input className="radio-fonts select-style" type="radio" value="2" id="style-fonts2" name="typography" />
+                      <input className="radio-fonts select-style" type="radio" value="2" id="style-fonts2" name="typography" onClick={handleRadioFontClick}/>
                       <span className="checkmark"></span>
                       <div className="radio__options">
                         <label htmlFor="style-fonts2" className="font__style-font2">comic sans</label>
                       </div>
                     </label>
                     <label className="block" htmlFor="style-fonts3">
-                      <input className="radio-fonts select-style" type="radio" value="3" id="style-fonts3" name="typography" />
+                      <input className="radio-fonts select-style" type="radio" value="3" id="style-fonts3" name="typography" onClick={handleRadioFontClick}/>
                       <span className="checkmark"></span>
                       <div className="radio__options">
                         <label htmlFor="style-fonts3" className="font__style-font3">montserrat</label>
                       </div>
                     </label>
                     <label className="block" htmlFor="style-fonts4">
-                      <input className="radio-fonts select-style" type="radio" value="4" id="style-fonts4" name="typography"/>
+                      <input className="radio-fonts select-style" type="radio" value="4" id="style-fonts4" name="typography" onClick={handleRadioFontClick}/>
                       <span className="checkmark"></span>
                       <div className="radio__options">
                         <label htmlFor="style-fonts4" className="font__style-font4">pacifico</label>

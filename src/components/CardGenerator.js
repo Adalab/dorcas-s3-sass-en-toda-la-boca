@@ -28,6 +28,7 @@ class CardGenerator extends Component {
     this.returnSkillsInjson = this.returnSkillsInjson.bind(this);
     this.catchFetch();
     this.handleRadioColorClick = this.handleRadioColorClick.bind(this);
+    this.handleRadioFontClick = this.handleRadioFontClick.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleJobChange = this.handleJobChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -41,38 +42,6 @@ class CardGenerator extends Component {
   }
 
   handleRadioColorClick(event){
-    if(event.target.value === '1'){
-      this.setState((prevState) => ({
-        data: {
-          ...prevState.data,
-          typography: 1
-        }
-      }))
-    } else if(event.target.value === '2'){
-      this.setState((prevState) => ({
-        data: {
-          ...prevState.data,
-          typography: 2
-        }
-      }))
-    } else if(event.target.value === '3'){
-      this.setState((prevState) => ({
-        data: {
-          ...prevState.data,
-          typography: 3
-        }
-      }))
-    } else if(event.target.value === '4'){
-      this.setState((prevState) => ({
-        data: {
-          ...prevState.data,
-          typography: 4
-        }
-      }))
-    }
-  }
-
-  handleRadioFontClick(event){
     if(event.target.value === '1'){
       this.setState((prevState) => ({
         data: {
@@ -99,6 +68,38 @@ class CardGenerator extends Component {
         data: {
           ...prevState.data,
           palette: 4
+        }
+      }))
+    }
+  }
+
+  handleRadioFontClick(event){
+    if(event.target.value === '1'){
+      this.setState((prevState) => ({
+        data: {
+          ...prevState.data,
+          typography: 1
+        }
+      }))
+    } else if(event.target.value === '2'){
+      this.setState((prevState) => ({
+        data: {
+          ...prevState.data,
+          typography: 2
+        }
+      }))
+    } else if(event.target.value === '3'){
+      this.setState((prevState) => ({
+        data: {
+          ...prevState.data,
+          typography: 3
+        }
+      }))
+    } else if(event.target.value === '4'){
+      this.setState((prevState) => ({
+        data: {
+          ...prevState.data,
+          typography: 4
         }
       }))
     }
@@ -252,6 +253,7 @@ class CardGenerator extends Component {
           chargeImage = {this.handleImage()} 
           inputImage = {this.fileInput}
           handleRadioColorClick= {this.handleRadioColorClick} 
+          handleRadioFontClick= {this.handleRadioFontClick} 
           />
       </div>
     );
