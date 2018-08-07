@@ -19,8 +19,11 @@ class Skills extends React.Component {
       
         return (
             <div>
-                {divSkills.map( (index)=>{
-                    if(divSkills.length === 1){
+                {divSkills.map( (item,index,arr)=>{
+                    console.log('arr', arr.length );
+                    console.log('cplus', classPlus  );
+                    console.log('plus', Plus  );
+                    if(arr.length === 1){
                         return (
                             <div key={index}>
                                 <SelectOptions
@@ -30,7 +33,8 @@ class Skills extends React.Component {
                                         key={index}
                                         classButton={classPlus}
                                         divSkills={divSkills}
-                                        addSkills={addSkills}                   buttonClass={Plus}                 
+                                        addSkills={addSkills}                
+                                        buttonClass={Plus}                 
                                         />
                             </div>
                             
