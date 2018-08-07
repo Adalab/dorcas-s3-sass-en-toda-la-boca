@@ -6,10 +6,13 @@ import PropTypes from 'prop-types';
 
 class Form extends React.Component {
     render() {
-        const {data} = this.props;
+        const {data,skills} = this.props;
         const {actionToPerform} = this.props;
         const {chargeImage} = this.props;
         const {inputImage} = this.props;
+        const {addSkills} = this.props;
+        const {divSkills} = this.props;
+        const {classMinus, classPlus} = this.props;
         //console.log('this form', actionToPerform)
         return (
             // clases sin usar en css: "main__section-form" "form"
@@ -17,6 +20,11 @@ class Form extends React.Component {
                 <form className="form" action="" method="post"> 
                     <Disena/>
                     <Rellena 
+                        classPlus = {classPlus}
+                        classMinus={classMinus}
+                        divSkills={divSkills}
+                        addSkills={addSkills}
+                        skills={skills}
                         data={data} 
                         actionToPerform = {actionToPerform} 
                         chargeImage = {chargeImage}

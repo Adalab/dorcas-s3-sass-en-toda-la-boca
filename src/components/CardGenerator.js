@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import Footer from './Footer';
 import Header from './Header';
 import Main from './Main';
 import PropTypes from 'prop-types';
 
-class App extends Component {
+class CardGenerator extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,6 +20,10 @@ class App extends Component {
         skills: ['CSS', 'html', 'JS'],
       },
       skills: [],
+      countSkills: 1,
+      divSkills:[1],
+      classPlus:'fas fa-plus',
+      classMinus:'fas fa-minus',
     };
     this.returnSkillsInjson = this.returnSkillsInjson.bind(this);
     this.catchFetch();
@@ -33,6 +36,7 @@ class App extends Component {
     this.fileInput = React.createRef();
     this.handleClickInput = this.handleClickInput.bind(this);
     this.handleInputFile = this.handleInputFile.bind(this);
+    this.handleAddSkills = this.handleAddSkills.bind(this);
   }
 
   handleNameChange (event) {
@@ -133,41 +137,61 @@ class App extends Component {
     return chargeImage;
   }
 
-  catchFetch () {
+  catchFetch() {
     fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
       .then(function (response) {
         return response.json();
-      }    
-    )
-    .then(this.returnSkillsInjson);
-     
+      }
+      )
+      .then(this.returnSkillsInjson);
+
   }
- 
-  returnSkillsInjson(json){
+
+  returnSkillsInjson(json) {
     console.log(json.skills);
     this.setState({
       skills: json.skills,
     })
   }
+
+  handleAddSkills(event){
+    console.log('if class === + haz esto:');
+    if(this.state.divSkills.length < 3){
+      this.setState({
+        countSkills: this.state.countSkills + 1,
+        divSkills: [...this.state.divSkills, this.state.countSkills],
+      })
+    } else {
+      alert('Ey no puedes poner mas de 3 habilidades!!');
+    }
+    console.log('else haz esto: this.setState');
+  }
   
   render() {
-    const {data} = this.state;
+    
+    const {data, skills} = this.state;
+    // console.log('aqui???',skills);
     //console.log('this app', this.handleActions)
+    console.log('this.stateeeeee1',this.state);
     return (
       <div className="page__wrapper">
         <Header />
         <Main 
-          data={data} 
+          classPlus={this.state.classPlus}
+          classMinus={this.state.classMinus}
+          data={data}
+          skills={skills}
+          addSkills={this.handleAddSkills}
+          divSkills={this.state.divSkills}
           actionToPerform = {this.handleActions()} 
           chargeImage = {this.handleImage()} 
           inputImage = {this.fileInput} />
-        <Footer/>
       </div>
     );
   }
 }
 
-App.propTypes = {
+CardGenerator.propTypes = {
 
   name:PropTypes.string,
   job: PropTypes.string,
@@ -178,4 +202,4 @@ App.propTypes = {
 
 };
 
-export default App;
+export default CardGenerator;

@@ -8,7 +8,7 @@ const paletteClasses= {
     '2': "secondary-palette",
     '3': "tertiary-palette",
     '4': "hearts-palette"
-  }
+}
   
 const typographies ={
     '1': 'font__style-font1',
