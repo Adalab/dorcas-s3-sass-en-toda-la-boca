@@ -52,7 +52,7 @@ const sendRequest = (json) => {
     },
   })
     .then(function(resp) { return resp.json(); })
-    .then(function(result) { showURL(result); })
+    .then(function(result) { return showURL(result); })
     .catch(function(error) { console.log(error); });
 }
 const twitterURL;

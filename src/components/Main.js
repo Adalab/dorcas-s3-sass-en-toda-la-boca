@@ -4,13 +4,16 @@ import Preview from './Preview';
 
 class Main extends Component {
     render () {
-        const {data,skills} = this.props;
+        const {data,skills, response} = this.props;
         const {actionToPerform} = this.props;
         const {chargeImage} = this.props;
         const {inputImage} = this.props;
         const {addSkills}=this.props;
         const {divSkills}=this.props;
-        const {classMinus, classPlus} = this.props;
+        const {classMinus,
+               classPlus,
+               sendRequest,
+                } = this.props;
         //console.log('this main', actionToPerform)
         console.log('this.stateeeeee2',this.props);
         return(
@@ -26,6 +29,8 @@ class Main extends Component {
                     actionToPerform = {actionToPerform} 
                     chargeImage = {chargeImage}
                     inputImage = {inputImage} 
+                    sendRequest = {sendRequest}
+                    response={response}
                 />
             </div>
         )

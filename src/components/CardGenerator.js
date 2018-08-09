@@ -3,6 +3,8 @@ import Header from './Header';
 import Main from './Main';
 import PropTypes from 'prop-types';
 
+let cargando='cargando';
+
 class CardGenerator extends Component {
   constructor(props) {
     super(props);
@@ -10,12 +12,12 @@ class CardGenerator extends Component {
       data: {
         palette: 1,
         typography: 4,
-        name: '',
-        job: '',
-        phone: '',
-        email: '',
-        linkedin: '',
-        github: '',
+        name: 'Paquito Gonzalez',
+        job: 'Developer',
+        phone: '666999888',
+        email: 'paquito@gmail.com',
+        linkedin: 'paquito54',
+        github: 'paquito54',
         photo: '',
         skills: ['CSS', 'html', 'JS'],
       },
@@ -37,7 +39,44 @@ class CardGenerator extends Component {
     this.handleClickInput = this.handleClickInput.bind(this);
     this.handleInputFile = this.handleInputFile.bind(this);
     this.handleAddSkills = this.handleAddSkills.bind(this);
+    this.sendRequest = this.sendRequest.bind(this);
+    this.showURL = this.showURL.bind(this);
+
   }
+
+  /////// crear tarjeta ///////////////
+  
+
+  sendRequest = () => {
+    let resp;
+    console.log(this.state.data)
+    const sendData= this.state.data;
+    console.log('He llegado hasta sendrequest');
+    fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
+     method: 'POST',
+     body: JSON.stringify(sendData),
+      headers: {
+        'content-type': 'application/json'
+      },
+     })
+       .then(function(resp) { return resp.json(); })
+      .then(function(result) { 
+        var x= await.result(20)
+      },this.showURL(x))
+      
+      .catch(function(error) { console.log(error); });
+  }
+
+  showURL = (result) => {
+    console.log(result)
+    if(result.success){
+      const URLFinal= result;
+    }else{
+      console.log(result.error);
+    }
+  }
+
+  ////////////////////////////////////
 
   handleNameChange (event) {
     console.log('this event', event.target.value);
@@ -185,7 +224,9 @@ class CardGenerator extends Component {
           divSkills={this.state.divSkills}
           actionToPerform = {this.handleActions()} 
           chargeImage = {this.handleImage()} 
-          inputImage = {this.fileInput} />
+          inputImage = {this.fileInput}
+          sendRequest = {this.sendRequest} 
+          response= {this.showURL}/>
       </div>
     );
   }

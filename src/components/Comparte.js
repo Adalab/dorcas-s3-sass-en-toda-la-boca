@@ -18,9 +18,10 @@ class Comparte extends React.Component {
   }
 
   render() {
+    const {response}=this.props;
     return (
       <Colapsable>
-        <div className="collapsible__container" data-valor="3">
+        <div className="collapsible__container collapsible--visible" data-valor="3">
           <div className="title__section-desing-container collapsible__label">
             <div className="title__section-title">
               <legend className="title__section-desing-title ">
@@ -34,7 +35,7 @@ class Comparte extends React.Component {
           </div>
           <div className="collapsible__content">
             <div className="form2__button--container">
-              <button className="form2__button" id="btn-submit" type="button" name="button" onClick={this.handleCreateCardButton}>
+              <button className="form2__button" id="btn-submit" type="button" name="button" onClick={this.props.sendRequest}>
                 <i className="far fa-address-card button--icon"></i>
                 <span>CREAR TARJETA</span>
               </button>
@@ -42,7 +43,7 @@ class Comparte extends React.Component {
             <div className="container__twitter">
               <div className="container__twitter--title">
               </div>
-              <p className="response"></p>
+              <p className="response">{response}</p>
               <div className="container__btn-twitter">
                 <button className="btn-twitter" onClick={this.handleShareCardButton}>
                   <i className="fab fa-twitter"></i> <a className="url-twitter link-twitter" href="" target="_blank">Compartir en twitter</a>
