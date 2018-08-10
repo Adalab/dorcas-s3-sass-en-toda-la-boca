@@ -11,6 +11,7 @@ class Main extends Component {
         const {addSkills}=this.props;
         const {divSkills}=this.props;
         const {classMinus, classPlus} = this.props;
+        const {handleRadioColorClick, handleRadioFontClick} = this.props;
         //console.log('this main', actionToPerform)
         console.log('this.stateeeeee2',this.props);
         return(
@@ -25,7 +26,9 @@ class Main extends Component {
                     data={data} 
                     actionToPerform = {actionToPerform} 
                     chargeImage = {chargeImage}
-                    inputImage = {inputImage} 
+                    inputImage = {inputImage}
+                    handleRadioColorClick= {handleRadioColorClick}
+                    handleRadioFontClick= {handleRadioFontClick}
                 />
             </div>
         )
