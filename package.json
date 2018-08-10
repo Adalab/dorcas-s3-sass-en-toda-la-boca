@@ -2,6 +2,7 @@
   "name": "dorcas-s3-sass-en-toda-la-boca",
   "version": "0.1.0",
   "private": true,
+
   "dependencies": {
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
@@ -23,5 +24,6 @@
     "@fortawesome/fontawesome-free": "^5.2.0",
     "node-sass-chokidar": "^1.3.3",
     "npm-run-all": "^4.1.3"
-  }
+  },
+  "homepage": "./"
 }
