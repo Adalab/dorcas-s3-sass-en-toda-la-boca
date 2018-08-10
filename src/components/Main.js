@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
-import Form from './Form';
+import CardForm from './CardForm';
 import Preview from './Preview';
 
 class Main extends Component {
     render () {
-        const {data,skills} = this.props;
-        const {actionToPerform} = this.props;
-        const {chargeImage} = this.props;
-        const {inputImage} = this.props;
-        const {addSkills}=this.props;
-        const {divSkills}=this.props;
-        const {classMinus, classPlus} = this.props;
+        const {
+            data,
+            skills,
+            actionToPerform,
+            chargeImage,
+            inputImage,
+            addSkills,
+            divSkills,
+            classMinus,
+            classPlus
+        } = this.props;
         //console.log('this main', actionToPerform)
         console.log('this.stateeeeee2',this.props);
         return(
             <div className="main__target">
                 <Preview data={data}/>
-                <Form 
+                <CardForm 
                     classPlus = {classPlus}
                     classMinus={classMinus}
                     divSkills={divSkills}

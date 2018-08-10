@@ -4,7 +4,7 @@ import Rellena from './Rellena';
 import Comparte from './Comparte';
 import PropTypes from 'prop-types';
 
-class Form extends React.Component {
+class CardForm extends React.Component {
     render() {
         const {data,skills} = this.props;
         const {actionToPerform} = this.props;
@@ -37,7 +37,7 @@ class Form extends React.Component {
     }
 }
 
-Form.propTypes = {
+CardForm.propTypes = {
 
     name:PropTypes.string,
     job: PropTypes.string,
@@ -48,4 +48,4 @@ Form.propTypes = {
   
   };
 
-export default Form;
+export default CardForm;
