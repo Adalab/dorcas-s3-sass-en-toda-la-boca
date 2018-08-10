@@ -15,9 +15,9 @@ class Skills extends React.Component {
 
         return (
             <div>
-                {divSkills.map( (index)=>{
+                {divSkills.map( (valor, i)=>{
                     return (
-                        <div key={index}>
+                        <div key={i}>
                             <SelectOptions
                                 skills={skills}
                             />
