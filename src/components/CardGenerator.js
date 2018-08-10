@@ -33,7 +33,9 @@ class CardGenerator extends Component {
     this.fileInput = React.createRef();
     this.handleClickInput = this.handleClickInput.bind(this);
     this.handleInputFile = this.handleInputFile.bind(this);
+    this.handleSkills = this.handleSkills.bind(this);
     this.handleAddSkills = this.handleAddSkills.bind(this);
+    this.handleRemoveSkills = this.handleRemoveSkills.bind(this);
   }
 
   handleNameChange(event) {
@@ -152,14 +154,22 @@ class CardGenerator extends Component {
     })
   }
 
-  handleAddSkills(isAdd = true, index) {
-    if (!isAdd) console.log('index', index)
+  handleSkills(isAdd = true, index) {
+    if (!isAdd) console.log('index', index);
+    this.handleAddSkills();
+  }
+
+  handleAddSkills() {
     if (this.state.divSkills.length < 3) {
       this.setState({
         countSkills: this.state.countSkills + 1,
         divSkills: [...this.state.divSkills, this.state.countSkills],
       })
     }
+  }
+
+  handleRemoveSkills() {
+    console.log('quito')
   }
 
   render() {
@@ -174,7 +184,7 @@ class CardGenerator extends Component {
         <Main
           data={data}
           skills={skills}
-          addSkills={this.handleAddSkills}
+          addSkills={this.handleSkills}
           divSkills={this.state.divSkills}
           actionToPerform={this.handleActions()}
           chargeImage={this.handleImage()}
