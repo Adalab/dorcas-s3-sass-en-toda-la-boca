@@ -5,20 +5,7 @@ import PropTypes from 'prop-types';
 class Disena extends React.Component {
     render() {
         return (
-            <Colapsable>
-            <div className="collapsible__container" data-valor="1" >
-              <div className="title__section-desing-container collapsible__label">
-                <div className="title__section-title">
-                  <legend className="title__section-desing-title ">
-                    <span>
-                      <i className="far fa-object-ungroup icon-ungroup-desing"></i>
-                    </span> diseña</legend>
-                </div>
-                <div className="title__section-icon">
-                  <i className="fas fa-chevron-up icon-chevron-up-desing icon-collapsible" data-valor="1"></i>
-                </div>
-              </div>
-              
+            <Colapsable title='Diseña' iconClass='far fa-object-ungroup'>
               <div className="collapsible__content">
                 <div className="form__container-radio">
                   <div className="label__design">
@@ -103,7 +90,6 @@ class Disena extends React.Component {
                   </div>
                 </div>
               </div>
-            </div>
           </Colapsable>
         )
     }
