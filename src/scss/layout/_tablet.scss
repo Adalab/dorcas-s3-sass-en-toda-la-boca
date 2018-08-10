@@ -9,7 +9,8 @@
 
 .collapsible--visible {
   .collapsible__content {
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -20,7 +21,6 @@
     flex-direction: row-reverse;
     justify-content: space-evenly;
     align-items: flex-start;
-    height: 852px;
     background-image: linear-gradient(to bottom, $color-light-medium, $color-light);
   }
   .main__section-card {
