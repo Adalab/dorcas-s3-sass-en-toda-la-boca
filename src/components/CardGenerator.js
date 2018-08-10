@@ -9,7 +9,7 @@ class CardGenerator extends Component {
     this.state = {
       data: {
         palette: 1,
-        typography: 4,
+        typography: 1,
         name: '',
         job: '',
         phone: '',
@@ -27,6 +27,8 @@ class CardGenerator extends Component {
     };
     this.returnSkillsInjson = this.returnSkillsInjson.bind(this);
     this.catchFetch();
+    this.handleRadioColorClick = this.handleRadioColorClick.bind(this);
+    this.handleRadioFontClick = this.handleRadioFontClick.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleJobChange = this.handleJobChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -37,6 +39,80 @@ class CardGenerator extends Component {
     this.handleClickInput = this.handleClickInput.bind(this);
     this.handleInputFile = this.handleInputFile.bind(this);
     this.handleAddSkills = this.handleAddSkills.bind(this);
+  }
+
+  componentDidMount(){
+    const {name, job, phone, email, linedin, github, photo} = this.state;
+    if(!name && !job && !phone && !email && !linedin && !github && !photo ){
+      // localStorage.getItem(){
+        
+      // }
+      console.log('todo esta vacio!');
+    } 
+  }
+
+  handleRadioColorClick(event){
+    if(event.target.value === '1'){
+      this.setState((prevState) => ({
+        data: {
+          ...prevState.data,
+          palette: 1
+        }
+      }))
+    } else if(event.target.value === '2'){
+      this.setState((prevState) => ({
+        data: {
+          ...prevState.data,
+          palette: 2
+        }
+      }))
+    } else if(event.target.value === '3'){
+      this.setState((prevState) => ({
+        data: {
+          ...prevState.data,
+          palette: 3
+        }
+      }))
+    } else if(event.target.value === '4'){
+      this.setState((prevState) => ({
+        data: {
+          ...prevState.data,
+          palette: 4
+        }
+      }))
+    }
+  }
+
+  handleRadioFontClick(event){
+    if(event.target.value === '1'){
+      this.setState((prevState) => ({
+        data: {
+          ...prevState.data,
+          typography: 1
+        }
+      }))
+    } else if(event.target.value === '2'){
+      this.setState((prevState) => ({
+        data: {
+          ...prevState.data,
+          typography: 2
+        }
+      }))
+    } else if(event.target.value === '3'){
+      this.setState((prevState) => ({
+        data: {
+          ...prevState.data,
+          typography: 3
+        }
+      }))
+    } else if(event.target.value === '4'){
+      this.setState((prevState) => ({
+        data: {
+          ...prevState.data,
+          typography: 4
+        }
+      }))
+    }
   }
 
   handleNameChange (event) {
@@ -168,7 +244,7 @@ class CardGenerator extends Component {
   }
   
   render() {
-    
+
     const {data, skills} = this.state;
     // console.log('aqui???',skills);
     //console.log('this app', this.handleActions)
@@ -185,7 +261,10 @@ class CardGenerator extends Component {
           divSkills={this.state.divSkills}
           actionToPerform = {this.handleActions()} 
           chargeImage = {this.handleImage()} 
-          inputImage = {this.fileInput} />
+          inputImage = {this.fileInput}
+          handleRadioColorClick= {this.handleRadioColorClick} 
+          handleRadioFontClick= {this.handleRadioFontClick} 
+          />
       </div>
     );
   }
