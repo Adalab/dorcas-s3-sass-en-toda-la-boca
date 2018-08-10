@@ -12,8 +12,6 @@ class Main extends Component {
             inputImage,
             addSkills,
             divSkills,
-            classMinus,
-            classPlus
         } = this.props;
         //console.log('this main', actionToPerform)
         console.log('this.stateeeeee2',this.props);
@@ -21,8 +19,6 @@ class Main extends Component {
             <div className="main__target">
                 <Preview data={data}/>
                 <CardForm 
-                    classPlus = {classPlus}
-                    classMinus={classMinus}
                     divSkills={divSkills}
                     addSkills={addSkills}
                     skills={skills}

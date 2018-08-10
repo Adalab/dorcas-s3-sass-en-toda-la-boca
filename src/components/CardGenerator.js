@@ -21,9 +21,7 @@ class CardGenerator extends Component {
       },
       skills: [],
       countSkills: 1,
-      divSkills:[1],
-      classPlus:'fas fa-plus',
-      classMinus:'fas fa-minus',
+      divSkills: [1],
     };
     this.returnSkillsInjson = this.returnSkillsInjson.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -38,9 +36,9 @@ class CardGenerator extends Component {
     this.handleAddSkills = this.handleAddSkills.bind(this);
   }
 
-  handleNameChange (event) {
+  handleNameChange(event) {
     console.log('this event', event.target.value);
-    
+
     this.setState({
       data: {
         ...this.state.data,
@@ -49,7 +47,7 @@ class CardGenerator extends Component {
     })
   }
 
-  handleJobChange (event) {
+  handleJobChange(event) {
     this.setState({
       data: {
         ...this.state.data,
@@ -58,7 +56,7 @@ class CardGenerator extends Component {
     })
   }
 
-  handleEmailChange (event) {
+  handleEmailChange(event) {
     this.setState({
       data: {
         ...this.state.data,
@@ -67,7 +65,7 @@ class CardGenerator extends Component {
     })
   }
 
-  handleTelChange (event) {
+  handleTelChange(event) {
     this.setState({
       data: {
         ...this.state.data,
@@ -76,7 +74,7 @@ class CardGenerator extends Component {
     })
   }
 
-  handleLinkedinChange (event) {
+  handleLinkedinChange(event) {
     this.setState({
       data: {
         ...this.state.data,
@@ -85,7 +83,7 @@ class CardGenerator extends Component {
     })
   }
 
-  handleGithubChange (event) {
+  handleGithubChange(event) {
     this.setState({
       data: {
         ...this.state.data,
@@ -94,9 +92,9 @@ class CardGenerator extends Component {
     })
   }
 
-  handleActions () {
+  handleActions() {
     const actionToPerform = {
-      name : this.handleNameChange,
+      name: this.handleNameChange,
       job: this.handleJobChange,
       email: this.handleEmailChange,
       phone: this.handleTelChange,
@@ -108,19 +106,19 @@ class CardGenerator extends Component {
 
   handleClickInput(event) {
     console.log('image input', this.fileInput)
-      this.fileInput.current.click()
+    this.fileInput.current.click()
   }
 
-  handleInputFile (event) {
+  handleInputFile(event) {
     const fr = new FileReader();
 
     const loadImage = () => {
-        this.setState ({
-          data: {
-            ...this.state.data,
-            photo: fr.result,
-          }
-          });
+      this.setState({
+        data: {
+          ...this.state.data,
+          photo: fr.result,
+        }
+      });
     }
 
     console.log(event.target.files[0])
@@ -128,7 +126,7 @@ class CardGenerator extends Component {
     fr.readAsDataURL(event.target.files[0]);
   }
 
-  handleImage () {
+  handleImage() {
     const chargeImage = {
       input: this.handleInputFile,
       click: this.handleClickInput,
@@ -138,7 +136,7 @@ class CardGenerator extends Component {
 
   componentDidMount() {
     fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
-    
+
       .then(function (response) {
         return response.json();
       }
@@ -154,38 +152,33 @@ class CardGenerator extends Component {
     })
   }
 
-  handleAddSkills(event){
-    console.log('if class === + haz esto:');
-    if(this.state.divSkills.length < 3){
+  handleAddSkills(isAdd = true, index) {
+    if (!isAdd) console.log('index', index)
+    if (this.state.divSkills.length < 3) {
       this.setState({
         countSkills: this.state.countSkills + 1,
         divSkills: [...this.state.divSkills, this.state.countSkills],
       })
-    } else {
-      alert('Ey no puedes poner mas de 3 habilidades!!');
     }
-    console.log('else haz esto: this.setState');
   }
-  
+
   render() {
-    
-    const {data, skills} = this.state;
+
+    const { data, skills } = this.state;
     // console.log('aqui???',skills);
     //console.log('this app', this.handleActions)
-    console.log('this.stateeeeee1',this.state);
+    console.log('this.stateeeeee1', this.state);
     return (
       <div className="page__wrapper">
         <Header />
-        <Main 
-          classPlus={this.state.classPlus}
-          classMinus={this.state.classMinus}
+        <Main
           data={data}
           skills={skills}
           addSkills={this.handleAddSkills}
           divSkills={this.state.divSkills}
-          actionToPerform = {this.handleActions()} 
-          chargeImage = {this.handleImage()} 
-          inputImage = {this.fileInput} />
+          actionToPerform={this.handleActions()}
+          chargeImage={this.handleImage()}
+          inputImage={this.fileInput} />
       </div>
     );
   }
@@ -193,7 +186,7 @@ class CardGenerator extends Component {
 
 CardGenerator.propTypes = {
 
-  name:PropTypes.string,
+  name: PropTypes.string,
   job: PropTypes.string,
   phone: PropTypes.number,
   email: PropTypes.string,
