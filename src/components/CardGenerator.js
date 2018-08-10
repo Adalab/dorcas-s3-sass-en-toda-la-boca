@@ -41,15 +41,15 @@ class CardGenerator extends Component {
     this.handleAddSkills = this.handleAddSkills.bind(this);
   }
 
-  componentDidMount(){
-    const {name, job, phone, email, linedin, github, photo} = this.state;
-    if(!name && !job && !phone && !email && !linedin && !github && !photo ){
-      // localStorage.getItem(){
+  // componentDidMount(){
+  //   const {name, job, phone, email, linedin, github, photo} = this.state;
+  //   if(!name && !job && !phone && !email && !linedin && !github && !photo ){
+  //     // localStorage.getItem(){
         
-      // }
-      console.log('todo esta vacio!');
-    } 
-  }
+  //     // }
+  //     console.log('todo esta vacio!');
+  //   } 
+  // }
 
   handleRadioColorClick(event){
     if(event.target.value === '1'){
