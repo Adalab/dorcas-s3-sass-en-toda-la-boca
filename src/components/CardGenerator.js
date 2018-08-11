@@ -38,7 +38,6 @@ class CardGenerator extends Component {
     this.handleClickInput = this.handleClickInput.bind(this);
     this.handleInputFile = this.handleInputFile.bind(this);
     this.handleAddSkills = this.handleAddSkills.bind(this);
-    this.handleCreateCardButton = this.handleCreateCardButton.bind(this);
   }
 
   // componentDidMount(){
@@ -58,6 +57,20 @@ class CardGenerator extends Component {
       }
       )
       .then(this.returnSkillsInjson);
+    }
+
+  componentWillMount(){
+    if (localStorage.getItem('data')){
+      this.setState({
+        data: JSON.parse(localStorage.getItem('data')),
+      })
+    } else {
+      console.log('Bienvenido');
+    }
+  }
+
+  componentWillUpdate(nextProps, nextState){
+    localStorage.setItem('data', JSON.stringify(nextState.data));
   }
 
   handleRadioColorClick(event){
@@ -223,7 +236,7 @@ class CardGenerator extends Component {
   }
 
   returnSkillsInjson(json) {
-    console.log(json.skills);
+    // console.log(json.skills);
     this.setState({
       skills: json.skills,
     })
@@ -241,17 +254,13 @@ class CardGenerator extends Component {
     }
     console.log('else haz esto: this.setState');
   }
-  
-  handleCreateCardButton() {
-    console.log('tarjeta creada');
-  }
 
   render() {
 
     const {data, skills} = this.state;
     // console.log('aqui???',skills);
     //console.log('this app', this.handleActions)
-    console.log('this.stateeeeee1',this.state);
+    // console.log('this.stateeeeee1',this.state);
     return (
       <div className="page__wrapper">
         <Header />
@@ -267,7 +276,6 @@ class CardGenerator extends Component {
           inputImage = {this.fileInput}
           handleRadioColorClick= {this.handleRadioColorClick} 
           handleRadioFontClick= {this.handleRadioFontClick} 
-          handleCreateCardButton={this.handleCreateCardButton}
           />
       </div>
     );

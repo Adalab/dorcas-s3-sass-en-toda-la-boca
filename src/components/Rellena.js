@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 class Rellena extends React.Component {
 
     render() {
-      console.log('props',this.props)
+      // console.log('props',this.props)
       const {data,skills} = this.props;
       const {actionToPerform} = this.props;
       const {chargeImage} = this.props;

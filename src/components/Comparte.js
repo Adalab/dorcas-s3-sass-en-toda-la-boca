@@ -6,19 +6,23 @@ class Comparte extends React.Component {
     super(props);
 
     this.handleShareCardButton = this.handleShareCardButton.bind(this);
+    this.handleCreateCardButton = this.handleCreateCardButton.bind(this);
   }
 
   handleShareCardButton() {
     console.log('comparte tarjeta');
   }
 
+  handleCreateCardButton(){
+    console.log('crea tarjeta');
+  }
+
   render() {
-    const {handleCreateCardButton}=this.props;
     return (
       <Colapsable title='Comparte' iconClass='fas fa-share-alt'>
         <div className="collapsible__content">
           <div className="form2__button--container">
-            <button className="form2__button" id="btn-submit" type="button" name="button" onClick={handleCreateCardButton}>
+            <button className="form2__button" id="btn-submit" type="button" name="button" onClick={this.handleCreateCardButton}>
               <i className="far fa-address-card button--icon"></i>
               <span>CREAR TARJETA</span>
             </button>

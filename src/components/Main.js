@@ -12,9 +12,8 @@ class Main extends Component {
         const {divSkills}=this.props;
         const {classMinus, classPlus} = this.props;
         const {handleRadioColorClick, handleRadioFontClick} = this.props;
-        const {handleCreateCardButton} = this.props;
         //console.log('this main', actionToPerform)
-        console.log('this.stateeeeee2',this.props);
+        // console.log('this.stateeeeee2',this.props);
         return(
             <div className="main__target">
                 <Preview data={data}/>
@@ -30,7 +29,6 @@ class Main extends Component {
                     inputImage = {inputImage}
                     handleRadioColorClick= {handleRadioColorClick}
                     handleRadioFontClick= {handleRadioFontClick}
-                    handleCreateCardButton={handleCreateCardButton}
                 />
             </div>
         )
