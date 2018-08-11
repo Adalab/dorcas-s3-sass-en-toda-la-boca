@@ -15,19 +15,7 @@ class Rellena extends React.Component {
       const {divSkills} =this.props;
       const {classMinus, classPlus} = this.props;
         return (
-            <Colapsable>
-            <div className="collapsible__container collapsible--visible" data-valor="2">
-              <div className="title__section-desing-container collapsible__label">
-                <div className="title__section-title">
-                  <legend className="title__section-desing-title ">
-                    <span>
-                      <i className="far fa-keyboard section-stuffed__icon"></i>
-                    </span>rellena</legend>
-                </div>
-                <div className="title__section-icon">
-                  <i className="fas fa-chevron-down icon-chevron-up-desing icon-collapsible" data-valor="2"></i>
-                </div>
-              </div>
+            <Colapsable title='Rellena' iconClass='far fa-keyboard'>
               <div className="collapsible__content">
   
                 <label className="label--stuffed" htmlFor="name">Nombre completo</label>
@@ -76,7 +64,6 @@ class Rellena extends React.Component {
   
                 </ul>
               </div>
-            </div>
           </Colapsable>
 
         )

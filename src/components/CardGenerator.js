@@ -26,7 +26,6 @@ class CardGenerator extends Component {
       classMinus:'fas fa-minus',
     };
     this.returnSkillsInjson = this.returnSkillsInjson.bind(this);
-    this.catchFetch();
     this.handleRadioColorClick = this.handleRadioColorClick.bind(this);
     this.handleRadioFontClick = this.handleRadioFontClick.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -50,6 +49,15 @@ class CardGenerator extends Component {
   //     console.log('todo esta vacio!');
   //   } 
   // }
+  componentDidMount() {
+    fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
+    
+      .then(function (response) {
+        return response.json();
+      }
+      )
+      .then(this.returnSkillsInjson);
+  }
 
   handleRadioColorClick(event){
     if(event.target.value === '1'){
@@ -211,16 +219,6 @@ class CardGenerator extends Component {
       click: this.handleClickInput,
     }
     return chargeImage;
-  }
-
-  catchFetch() {
-    fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
-      .then(function (response) {
-        return response.json();
-      }
-      )
-      .then(this.returnSkillsInjson);
-
   }
 
   returnSkillsInjson(json) {
