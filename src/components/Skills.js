@@ -5,6 +5,8 @@ import CardButton from './CardButton';
 class Skills extends React.Component {
     constructor(props) {
         super(props);
+        
+        this.handleUpdateSkill = this.handleUpdateSkill.bind(this);
     }
 
     handleButtonClass(index) {
@@ -15,6 +17,15 @@ class Skills extends React.Component {
         if (skillsArray.length === 3) return classMinus;
         if (skillsArray.length === 1) return classPlus;
         return index === skillsArray.length - 1 ? classPlus : classMinus;
+    }
+
+    handleUpdateSkill(event){
+        this.setState({
+            // data: {
+            //   ...this.state.data,
+            //   skills: event.target.value,
+            // }
+          })
     }
 
     render() {
@@ -31,6 +42,7 @@ class Skills extends React.Component {
                         <div key={i}>
                             <SelectOptions
                                 skills={skills}
+                                handleUpdateSkill={this.handleUpdateSkill}
                             />
                             <CardButton
                                 addSkills={addSkills}
