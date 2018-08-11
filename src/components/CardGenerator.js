@@ -38,6 +38,7 @@ class CardGenerator extends Component {
     this.handleClickInput = this.handleClickInput.bind(this);
     this.handleInputFile = this.handleInputFile.bind(this);
     this.handleAddSkills = this.handleAddSkills.bind(this);
+    this.handleCreateCardButton = this.handleCreateCardButton.bind(this);
   }
 
   // componentDidMount(){
@@ -241,6 +242,10 @@ class CardGenerator extends Component {
     console.log('else haz esto: this.setState');
   }
   
+  handleCreateCardButton() {
+    console.log('tarjeta creada');
+  }
+
   render() {
 
     const {data, skills} = this.state;
@@ -262,6 +267,7 @@ class CardGenerator extends Component {
           inputImage = {this.fileInput}
           handleRadioColorClick= {this.handleRadioColorClick} 
           handleRadioFontClick= {this.handleRadioFontClick} 
+          handleCreateCardButton={this.handleCreateCardButton}
           />
       </div>
     );

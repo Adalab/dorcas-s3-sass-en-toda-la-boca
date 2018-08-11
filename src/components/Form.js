@@ -14,6 +14,7 @@ class Form extends React.Component {
         const {divSkills} = this.props;
         const {classMinus, classPlus} = this.props;
         const {handleRadioColorClick, handleRadioFontClick} = this.props;
+        const {handleCreateCardButton}=this.props;
         //console.log('this form', actionToPerform)
         return (
             // clases sin usar en css: "main__section-form" "form"
@@ -35,7 +36,9 @@ class Form extends React.Component {
                         chargeImage = {chargeImage}
                         inputImage = {inputImage}
                     />
-                    <Comparte/>
+                    <Comparte
+                        handleCreateCardButton={handleCreateCardButton}
+                    />
                  </form>
             </div>
         )
