@@ -140,15 +140,15 @@ class CardGenerator extends Component {
     return chargeImage;
   }
 
-  // componentDidMount() {
-  //   fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
+  componentDidMount() {
+    fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
 
-  //     .then(function (response) {
-  //       return response.json();
-  //     }
-  //     )
-  //     .then(this.returnSkillsInjson);
-  // }
+      .then(function (response) {
+        return response.json();
+      }
+      )
+      .then(this.returnSkillsInjson);
+  }
 
 
   returnSkillsInjson(json) {
@@ -158,11 +158,12 @@ class CardGenerator extends Component {
     })
   }
 
-  handleSkills(isAdd = true, index) {
+  handleSkills(isAdd, index) {
     if (isAdd) this.handleAddSkills();
     if (!isAdd) this.handleRemoveSkills(index);
     console.log('divSkills cuando añade o quita', this.state.divSkills)
-
+    console.log('isAdd', isAdd);
+    console.log('index', index);
   }
 
   handleAddSkills() {
@@ -176,8 +177,8 @@ class CardGenerator extends Component {
 
   handleRemoveSkills(indexRest) {
     this.setState({
-      divSkills: this.state.divSkills.splice(indexRest, 1),
       countSkills: this.state.countSkills - 1,
+      divSkills: this.state.divSkills.splice(indexRest, 1),
     })
     console.log('quito', indexRest)
   }
