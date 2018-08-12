@@ -5,6 +5,11 @@ import CardButton from './CardButton';
 class Skills extends React.Component {
     constructor(props) {
         super(props);
+        console.log('props en skills.js', this.props)
+        const {divSkills} = this.props;
+        console.log('divSkills en constructor', divSkills)
+        
+      // console.log('estado divskills', this.state.divSkills)
     }
 
     handleButtonClass(index) {
@@ -24,6 +29,7 @@ class Skills extends React.Component {
             addSkills,
         } = this.props;
 
+        console.log('div skills antes de pintarse', this.props.divSkills)
         return (
             <div>
                 {divSkills.map((valor, i) => {

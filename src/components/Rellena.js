@@ -7,7 +7,7 @@ import sassLogo from '../images/sass_logo.svg';
 class Rellena extends React.Component {
 
   render() {
-    console.log('props', this.props)
+    
     const {
       data,
       skills,
@@ -17,6 +17,8 @@ class Rellena extends React.Component {
       addSkills,
       divSkills,
     } = this.props;
+
+    console.log('props', this.props)
 
     return (
       <Colapsable title='Rellena' iconClass='far fa-keyboard'>

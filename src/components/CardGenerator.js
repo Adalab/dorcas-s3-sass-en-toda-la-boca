@@ -21,7 +21,7 @@ class CardGenerator extends Component {
       },
       skills: [],
       countSkills: 1,
-      divSkills: [1],
+      divSkills: [0],
     };
     this.returnSkillsInjson = this.returnSkillsInjson.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -38,9 +38,9 @@ class CardGenerator extends Component {
     this.handleRemoveSkills = this.handleRemoveSkills.bind(this);
   }
 
-   handleResetButton() {
-        console.log('reset tarjeta');
-    }
+  handleResetButton() {
+    console.log('reset tarjeta');
+  }
 
   handleNameChange(event) {
     console.log('this event', event.target.value);
@@ -140,15 +140,15 @@ class CardGenerator extends Component {
     return chargeImage;
   }
 
-  componentDidMount() {
-    fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
+  // componentDidMount() {
+  //   fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
 
-      .then(function (response) {
-        return response.json();
-      }
-      )
-      .then(this.returnSkillsInjson);
-  }
+  //     .then(function (response) {
+  //       return response.json();
+  //     }
+  //     )
+  //     .then(this.returnSkillsInjson);
+  // }
 
 
   returnSkillsInjson(json) {
@@ -159,34 +159,37 @@ class CardGenerator extends Component {
   }
 
   handleSkills(isAdd = true, index) {
-    if (!isAdd) console.log('index', index);
-    if (this.state.divSkills.length < 3) return this.handleAddSkills();
-    else return this.handleRemoveSkills(index);
+    if (isAdd) this.handleAddSkills();
+    if (!isAdd) this.handleRemoveSkills(index);
+    console.log('divSkills cuando añade o quita', this.state.divSkills)
+
   }
 
   handleAddSkills() {
+    if (this.state.divSkills.length < 3) {
       this.setState({
         countSkills: this.state.countSkills + 1,
         divSkills: [...this.state.divSkills, this.state.countSkills],
       })
     }
+  }
 
   handleRemoveSkills(indexRest) {
-    // const itemToRemove = index;
-    console.log('skills antes de quitar', this.state.divSkills)
     this.setState({
-      divSkills: this.state.divSkills.filter((itemToRemove, index) =>
-        this.state.divSkills[index] !== indexRest
-    )  
+      divSkills: this.state.divSkills.splice(indexRest, 1),
+      countSkills: this.state.countSkills - 1,
     })
-    console.log('skills después de quitar', this.state.divSkills)
     console.log('quito', indexRest)
   }
-  
-  render() {
 
-    const { data, skills } = this.state;
-    // console.log('aqui???',skills);
+  render() {
+    console.log('estado de las skills cuando se renderiza', this.state.divSkills)
+    const { 
+      data, 
+      skills, 
+      divSkills 
+    } = this.state;
+    //console.log('skills???',skills);
     //console.log('this app', this.handleActions)
     return (
       <div className="page__wrapper">
@@ -195,7 +198,7 @@ class CardGenerator extends Component {
           data={data}
           skills={skills}
           addSkills={this.handleSkills}
-          divSkills={this.state.divSkills}
+          divSkills={divSkills}
           actionToPerform={this.handleActions()}
           chargeImage={this.handleImage()}
           inputImage={this.fileInput} />
