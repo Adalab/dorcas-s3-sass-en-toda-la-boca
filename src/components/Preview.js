@@ -1,6 +1,8 @@
 import React from 'react';
 import '@fortawesome/fontawesome-free/css/all.css';
 import PropTypes from 'prop-types';
+import sassLogo from '../images/sass_logo.svg';
+
 
 
 const paletteClasses= {
@@ -48,7 +50,7 @@ class Preview extends React.Component {
                             <span className={`card__subtitle ${typographies[typography]}`} id="card--job">
                                 {job || 'Web Developer'}
                             </span>
-                            <img className="photo" src={photo || "https://picsum.photos/240/200"} alt="foto" />
+                            <img className="photo" src={photo || sassLogo} alt="foto" />
                             <ul className="card__media">
                                 <a className="localcard--phone" id="tlf" href={`tel:${phone}`}   target="_blank">
                                     <li className="card__media--icon">

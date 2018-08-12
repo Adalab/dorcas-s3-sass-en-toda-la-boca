@@ -38,6 +38,10 @@ class CardGenerator extends Component {
     this.handleRemoveSkills = this.handleRemoveSkills.bind(this);
   }
 
+   handleResetButton() {
+        console.log('reset tarjeta');
+    }
+
   handleNameChange(event) {
     console.log('this event', event.target.value);
 
@@ -156,28 +160,34 @@ class CardGenerator extends Component {
 
   handleSkills(isAdd = true, index) {
     if (!isAdd) console.log('index', index);
-    this.handleAddSkills();
+    if (this.state.divSkills.length < 3) return this.handleAddSkills();
+    else return this.handleRemoveSkills(index);
   }
 
   handleAddSkills() {
-    if (this.state.divSkills.length < 3) {
       this.setState({
         countSkills: this.state.countSkills + 1,
         divSkills: [...this.state.divSkills, this.state.countSkills],
       })
     }
-  }
 
-  handleRemoveSkills() {
-    console.log('quito')
+  handleRemoveSkills(indexRest) {
+    // const itemToRemove = index;
+    console.log('skills antes de quitar', this.state.divSkills)
+    this.setState({
+      divSkills: this.state.divSkills.filter((itemToRemove, index) =>
+        this.state.divSkills[index] !== indexRest
+    )  
+    })
+    console.log('skills después de quitar', this.state.divSkills)
+    console.log('quito', indexRest)
   }
-
+  
   render() {
 
     const { data, skills } = this.state;
     // console.log('aqui???',skills);
     //console.log('this app', this.handleActions)
-    console.log('this.stateeeeee1', this.state);
     return (
       <div className="page__wrapper">
         <Header />

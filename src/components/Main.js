@@ -14,7 +14,6 @@ class Main extends Component {
             divSkills,
         } = this.props;
         //console.log('this main', actionToPerform)
-        console.log('this.stateeeeee2',this.props);
         return(
             <div className="main__target">
                 <Preview data={data}/>
