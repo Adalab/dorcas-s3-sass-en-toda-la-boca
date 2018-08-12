@@ -38,6 +38,8 @@ class CardGenerator extends Component {
     this.handleClickInput = this.handleClickInput.bind(this);
     this.handleInputFile = this.handleInputFile.bind(this);
     this.handleAddSkills = this.handleAddSkills.bind(this);
+    this.handleResetButton = this.handleResetButton.bind(this);
+
   }
 
   componentDidMount() {
@@ -48,6 +50,24 @@ class CardGenerator extends Component {
       }
       )
       .then(this.returnSkillsInjson);
+  }
+
+  handleResetButton(event) {
+    console.log('reset tarjeta');
+    this.setState({
+        data:{
+            email: "",
+            github: "",
+            job: "",
+            linkedin: "",
+            name: "",
+            palette: "1",
+            phone: "",
+            photo: "",
+            typography: "2",
+            skills: ['HTML','git'],
+        }
+    })
   }
 
   handleRadioColorClick(event){

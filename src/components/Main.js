@@ -29,6 +29,7 @@ class Main extends Component {
                     inputImage = {inputImage}
                     handleRadioColorClick= {handleRadioColorClick}
                     handleRadioFontClick= {handleRadioFontClick}
+                    handleResetButton={this.props.handleResetButton} 
                 />
             </div>
         )

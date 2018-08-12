@@ -21,13 +21,9 @@ class Preview extends React.Component {
     constructor(props) {
         super(props);
 
-        this.handleResetButton = this.handleResetButton.bind(this);
     }
 
-    handleResetButton() {
-        console.log('reset tarjeta');
-    }
-
+    
     render() {
         console.log('quiero ver estas this props de preview:',this.props);
         const { palette, typography ,name, job, phone, email, linkedin, github, photo, skills} = this.props.data;
