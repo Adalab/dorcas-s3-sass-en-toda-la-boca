@@ -5,7 +5,7 @@ import CardButton from './CardButton';
 class Skills extends React.Component {
 
     handleButtonClass(index) {
-        const 
+        const
             classPlus = 'fas fa-plus',
             classMinus = 'fas fa-minus',
             skillsArray = this.props.divSkills;
@@ -14,10 +14,7 @@ class Skills extends React.Component {
         return index === skillsArray.length - 1 ? classPlus : classMinus;
     }
 
-
-
     render() {
-        console.log('estado en skills', this.props.divSkills)
         const {
             skills,
             divSkills,
@@ -25,24 +22,29 @@ class Skills extends React.Component {
             updateSkill,
         } = this.props;
 
+        console.log('estado en skills', this.props.divSkills)
+
         // console.log('div skills antes de pintarse', this.props.divSkills)
         return (
             <div>
-                {divSkills.map((valor, i) => {
-                    return (
-                        <div key={i}>
-                            <SelectOptions
-                                skills={skills}
-                                updateSkill={updateSkill}
-                                buttonIndex={i}
-                            />
-                            <CardButton
-                                addSkills={addSkills}
-                                buttonClass={this.handleButtonClass(i)}
-                                buttonIndex={i}
-                            />
-                        </div>);
-                })}
+                {
+                    divSkills.map((valor, i) => {
+                        return (
+                            <div key={i}>
+                                <SelectOptions
+                                    skills={skills}
+                                    updateSkill={updateSkill}
+                                    buttonIndex={i}
+                                />
+                                <CardButton
+                                    addSkills={addSkills}
+                                    buttonClass={this.handleButtonClass(i)}
+                                    buttonIndex={i}
+                                />
+                            </div >
+                        );
+                    })
+                }
             </div>
         )
 

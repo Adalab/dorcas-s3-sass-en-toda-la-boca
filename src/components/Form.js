@@ -6,40 +6,51 @@ import PropTypes from 'prop-types';
 
 class Form extends React.Component {
     render() {
-        const {data,skills} = this.props;
-        const {actionToPerform} = this.props;
-        const {chargeImage} = this.props;
-        const {inputImage} = this.props;
-        const {addSkills} = this.props;
-        const {divSkills} = this.props;
-        const {classMinus, classPlus} = this.props;
-        const {handleRadioColorClick, handleRadioFontClick,submit, url} = this.props;
+        const {
+            data,
+            skills,
+            actionToPerform,
+            chargeImage,
+            inputImage,
+            addSkills,
+            divSkills,
+            classMinus,
+            classPlus,
+            handleRadioColorClick,
+            handleRadioFontClick,
+            submit,
+            url,
+            twitter,
+            twitterUrl
+        } = this.props;
         //console.log('this form', actionToPerform)
         return (
             // clases sin usar en css: "main__section-form" "form"
             <div className="main__section-form">
-                <form className="form" action="" method="post"> 
+                <form className="form" action="" method="post">
                     <Disena
-                        handleRadioColorClick= {handleRadioColorClick}
-                        handleRadioFontClick= {handleRadioFontClick} 
-                        data={data} 
+                        handleRadioColorClick={handleRadioColorClick}
+                        handleRadioFontClick={handleRadioFontClick}
+                        data={data}
                     />
-                    <Rellena 
-                        classPlus = {classPlus}
+                    <Rellena
+                        classPlus={classPlus}
                         classMinus={classMinus}
                         divSkills={divSkills}
                         addSkills={addSkills}
                         skills={skills}
-                        data={data} 
-                        actionToPerform = {actionToPerform} 
-                        chargeImage = {chargeImage}
-                        inputImage = {inputImage}
+                        data={data}
+                        actionToPerform={actionToPerform}
+                        chargeImage={chargeImage}
+                        inputImage={inputImage}
                     />
                     <Comparte
-                        submit ={submit}
+                        submit={submit}
                         url={url}
-                        />
-                 </form>
+                        twitter={twitter}
+                        twitterUrl={twitterUrl}
+                    />
+                </form>
             </div>
         )
     }
@@ -47,13 +58,13 @@ class Form extends React.Component {
 
 Form.propTypes = {
 
-    name:PropTypes.string,
+    name: PropTypes.string,
     job: PropTypes.string,
     phone: PropTypes.number,
     email: PropTypes.string,
     linkedin: PropTypes.string,
     github: PropTypes.string
-  
-  };
+
+};
 
 export default Form;
