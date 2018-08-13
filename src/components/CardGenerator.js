@@ -25,6 +25,7 @@ class CardGenerator extends Component {
       classPlus:'fas fa-plus',
       classMinus:'fas fa-minus',
       url: '',
+      twitter: '',
     };
     this.returnSkillsInjson = this.returnSkillsInjson.bind(this);
     this.handleRadioColorClick = this.handleRadioColorClick.bind(this);
@@ -42,7 +43,9 @@ class CardGenerator extends Component {
     this.handleAddSkills = this.handleAddSkills.bind(this);
     this.handleUpdateSkill = this.handleUpdateSkill.bind(this);
     this.handleRemoveSkills = this.handleRemoveSkills.bind(this);
+    this.handleResetButton = this.handleResetButton.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleTwitter = this.handleTwitter.bind(this);
   }
 
   componentDidMount() {
@@ -67,6 +70,25 @@ class CardGenerator extends Component {
 
   componentWillUpdate(nextProps, nextState){
     localStorage.setItem('data', JSON.stringify(nextState.data));
+  }
+
+  handleResetButton() {
+    console.log('reset tarjeta');
+    localStorage.clear()
+    this.setState({
+        data:{
+            email: "",
+            github: "",
+            job: "",
+            linkedin: "",
+            name: "",
+            palette: "1",
+            phone: "",
+            photo: "",
+            typography: "2",
+            skills: ['skill-1', 'skill-2', 'skill-3'],
+        }
+    })
   }
 
   handleRadioColorClick(event){
@@ -256,10 +278,11 @@ class CardGenerator extends Component {
   }
 
   handleRemoveSkills(indexRest) {
+    console.log('antes de restar', this.state.countSkills)
     this.setState({
       countSkills: this.state.countSkills - 1,
-      divSkills: this.state.divSkills.splice(indexRest, 1),
-    })
+      divSkills: this.state.divSkills.splice(indexRest, 2),
+    }, () => console.log('después de restar', this.state.countSkills))
     console.log('quito', indexRest)
   }
 
@@ -277,11 +300,18 @@ class CardGenerator extends Component {
     // })
   }
 
+  handleTwitter(event) {
+    const twitterURL = this.state.url
+    this.setState({
+        twitter: `https://twitter.com/intent/tweet?url=${twitterURL}&text=Acabo%20de%20crear%20mi%20tarjeta%20con%20Font%20Awesome%20de%20Sass%20en%20toda%20la%20boca!&hashtags=WomenInTech`
+    })
+    console.log('twitter', twitterURL)
+  }
+  
   handleSubmit(event) {
     console.log('tarjeta creada');
     console.log("data", this)
     event.preventDefault();
-  
     const jason = this.state.data;
     console.log("json", jason)
     fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
@@ -302,15 +332,6 @@ class CardGenerator extends Component {
     .catch(function (error) {
         console.log(error);
     });
-  }
-
-  handleRemoveSkills(indexRest) {
-    console.log('antes de restar', this.state.countSkills)
-    this.setState({
-      countSkills: this.state.countSkills - 1,
-      divSkills: this.state.divSkills.splice(indexRest, 2),
-    }, () => console.log('después de restar', this.state.countSkills))
-    console.log('quito', indexRest)
   }
 
   render() {
@@ -336,9 +357,12 @@ class CardGenerator extends Component {
           chargeImage = {this.handleImage()} 
           inputImage = {this.fileInput}
           handleRadioColorClick= {this.handleRadioColorClick} 
-          handleRadioFontClick= {this.handleRadioFontClick} 
+          handleRadioFontClick= {this.handleRadioFontClick}
+          handleResetButton={this.handleResetButton}  
           submit ={this.handleSubmit}
           url ={this.state.url}
+          twitter= {this.handleTwitter}
+          twitterUrl = {this.state.twitter}
           />
       </div>
     );

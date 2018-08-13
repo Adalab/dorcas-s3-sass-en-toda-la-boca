@@ -14,8 +14,6 @@ class Skills extends React.Component {
         return index === skillsArray.length - 1 ? classPlus : classMinus;
     }
 
-
-
     render() {
         console.log('estado en skills', this.props.divSkills)
         const {
@@ -23,6 +21,8 @@ class Skills extends React.Component {
             divSkills,
             addSkills,
             updateSkill,
+            classMinus,
+            classPlus,
         } = this.props;
 
         // console.log('div skills antes de pintarse', this.props.divSkills)
@@ -40,6 +40,7 @@ class Skills extends React.Component {
                                 addSkills={addSkills}
                                 buttonClass={this.handleButtonClass(i)}
                                 buttonIndex={i}
+                                classButton={classPlus}
                             />
                         </div>);
                 })}
