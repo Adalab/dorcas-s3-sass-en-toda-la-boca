@@ -24,6 +24,7 @@ class CardGenerator extends Component {
       divSkills:[1],
       classPlus:'fas fa-plus',
       classMinus:'fas fa-minus',
+      url: '',
     };
     this.returnSkillsInjson = this.returnSkillsInjson.bind(this);
     this.handleRadioColorClick = this.handleRadioColorClick.bind(this);
@@ -39,7 +40,7 @@ class CardGenerator extends Component {
     this.handleInputFile = this.handleInputFile.bind(this);
     this.handleAddSkills = this.handleAddSkills.bind(this);
     this.handleResetButton = this.handleResetButton.bind(this);
-
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -50,6 +51,20 @@ class CardGenerator extends Component {
       }
       )
       .then(this.returnSkillsInjson);
+    }
+
+  componentWillMount(){
+    if (localStorage.getItem('data')){
+      this.setState({
+        data: JSON.parse(localStorage.getItem('data')),
+      })
+    } else {
+      console.log('Bienvenido');
+    }
+  }
+
+  componentWillUpdate(nextProps, nextState){
+    localStorage.setItem('data', JSON.stringify(nextState.data));
   }
 
   handleResetButton() {
@@ -233,7 +248,7 @@ class CardGenerator extends Component {
   }
 
   returnSkillsInjson(json) {
-    console.log(json.skills);
+    // console.log(json.skills);
     this.setState({
       skills: json.skills,
     })
@@ -252,12 +267,45 @@ class CardGenerator extends Component {
     console.log('else haz esto: this.setState');
   }
   
+/////////////////////////create tarjeta ///////////////////////////////
+handleSubmit(event) {
+  console.log('tarjeta creada');
+  console.log("data", this)
+  event.preventDefault();
+  
+  const jason = this.state.data;
+  console.log("json", jason)
+  fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
+      method: 'POST',
+      body: JSON.stringify(jason),
+      headers: {
+          'content-type': 'application/json'
+      }
+  })
+      .then(function (resp) {
+          return resp.json();
+      })
+
+      .then((result) => {
+          const cardURL = result.cardURL
+          this.setState({ url: cardURL }, ()=> console.log('esta la url?', this.state))
+      })
+      .catch(function (error) {
+          console.log(error);
+      });
+
+      
+}
+
+//////////////////////////////////////////////////////////////////////
+
+
   render() {
-    
+
     const {data, skills} = this.state;
     // console.log('aqui???',skills);
     //console.log('this app', this.handleActions)
-    console.log('this.stateeeeee1',this.state);
+    // console.log('this.stateeeeee1',this.state);
     return (
       <div className="page__wrapper">
         <Header />
@@ -273,8 +321,10 @@ class CardGenerator extends Component {
           inputImage = {this.fileInput}
           handleRadioColorClick= {this.handleRadioColorClick} 
           handleRadioFontClick= {this.handleRadioFontClick}
-          handleResetButton={this.handleResetButton} 
- 
+          handleResetButton={this.handleResetButton}  
+          handleRadioFontClick= {this.handleRadioFontClick} 
+          submit ={this.handleSubmit}
+          url ={this.state.url}
           />
       </div>
     );
