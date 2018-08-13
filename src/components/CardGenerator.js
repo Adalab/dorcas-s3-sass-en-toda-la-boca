@@ -277,8 +277,7 @@ class CardGenerator extends Component {
     })
     console.log('twitter', twitterURL)
 }
-  
-/////////////////////////create tarjeta ///////////////////////////////
+
 handleSubmit(event) {
   console.log('tarjeta creada');
   console.log("data", this)
@@ -307,8 +306,6 @@ handleSubmit(event) {
 
       
 }
-
-//////////////////////////////////////////////////////////////////////
 
 
   render() {
