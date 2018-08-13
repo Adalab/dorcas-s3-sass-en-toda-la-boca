@@ -272,8 +272,9 @@ class CardGenerator extends Component {
   handleTwitter(event) {
     const twitterURL = this.state.url
     this.setState({
-        twitter: `https://twitter.com/intent/tweet?url=${twitterURL}&text=Acabo%20de%20crear%20mi%20tarjeta%20con%20Font%20Awesome%20de%20OVERflow&hashtags=WomenInTech`
+        twitter: `https://twitter.com/intent/tweet?url=${twitterURL}&text=Acabo%20de%20crear%20mi%20tarjeta%20con%20Font%20Awesome%20de%20Sass%20en%20toda%20la%20boca!&hashtags=WomenInTech`
     })
+    console.log('twitter', twitterURL)
 }
   
 /////////////////////////create tarjeta ///////////////////////////////
@@ -335,6 +336,7 @@ handleSubmit(event) {
           submit ={this.handleSubmit}
           url ={this.state.url}
           twitter= {this.handleTwitter}
+          twitterUrl = {this.state.twitter}
           />
       </div>
     );

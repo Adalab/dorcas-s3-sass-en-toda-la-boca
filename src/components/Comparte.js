@@ -10,7 +10,7 @@ class Comparte extends React.Component {
  
 
   render() {
-    const {submit,  url, twitter}= this.props;
+    const {submit,  url, twitter, twitterUrl}= this.props;
     return (
       <Colapsable title='Comparte' iconClass='fas fa-share-alt'>
         <div className="collapsible__content">
@@ -26,7 +26,7 @@ class Comparte extends React.Component {
             <p className="response"><a href={url}>{url}</a></p>
             <div className="container__btn-twitter">
               <button className="btn-twitter" onClick={twitter}>
-                <i className="fab fa-twitter"></i> <a className="url-twitter link-twitter" href="" target="_blank">Compartir en twitter</a>
+                <i className="fab fa-twitter"></i> <a className="url-twitter link-twitter" href={twitterUrl} target="_blank">Compartir en twitter</a>
               </button>
             </div>
           </div>
