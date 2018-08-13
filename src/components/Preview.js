@@ -31,9 +31,10 @@ class Preview extends React.Component {
     }
 
     render() {
-        //console.log(this.props);
+        console.log('quiero ver estas this props de preview:',this.props);
         const { palette, typography ,name, job, phone, email, linkedin, github, photo, skills} = this.props.data;
         // const {skills} = this.props;
+        console.log('paletica',palette);
         return (
             <div className="main__section-card">
                 <section className="section--top">

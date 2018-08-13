@@ -12,6 +12,8 @@ class Main extends Component {
             inputImage,
             addSkills,
             divSkills,
+            handleRadioColorClick,
+            handleRadioFontClick,
         } = this.props;
         //console.log('this main', actionToPerform)
         return(
@@ -24,7 +26,9 @@ class Main extends Component {
                     data={data} 
                     actionToPerform = {actionToPerform} 
                     chargeImage = {chargeImage}
-                    inputImage = {inputImage} 
+                    inputImage = {inputImage}
+                    handleRadioColorClick= {handleRadioColorClick}
+                    handleRadioFontClick= {handleRadioFontClick}
                 />
             </div>
         )
