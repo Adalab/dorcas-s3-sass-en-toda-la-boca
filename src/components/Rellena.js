@@ -16,6 +16,7 @@ class Rellena extends React.Component {
       inputImage,
       addSkills,
       divSkills,
+      updateSkill,
       classMinus,
       classPlus,
     } = this.props;
@@ -59,6 +60,7 @@ class Rellena extends React.Component {
 
           <div className="label--stuffed__container-select">
             <Skills
+              updateSkill={updateSkill}
               classPlus={classPlus}
               classMinus={classMinus}
               skills={skills}

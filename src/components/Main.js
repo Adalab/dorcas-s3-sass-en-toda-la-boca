@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Form from './Form';
+import CardForm from './CardForm';
 import Preview from './Preview';
 
 class Main extends Component {
@@ -12,13 +12,14 @@ class Main extends Component {
             inputImage,
             addSkills,
             divSkills,
+            updateSkill,
+            handleRadioColorClick,
+            handleRadioFontClick,
+            submit, 
+            url,
             classMinus,
             classPlus,
             handleResetButton,
-            handleRadioColorClick,
-            handleRadioFontClick,
-            submit,
-            url,
             twitter,
             twitterUrl,
         } = this.props;
@@ -29,9 +30,8 @@ class Main extends Component {
                 <Preview
                     data={data}
                     handleResetButton={handleResetButton}
-
                 />
-                <Form
+                <CardForm
                     classPlus={classPlus}
                     classMinus={classMinus}
                     divSkills={divSkills}
@@ -43,6 +43,7 @@ class Main extends Component {
                     inputImage={inputImage}
                     handleRadioColorClick={handleRadioColorClick}
                     handleRadioFontClick={handleRadioFontClick}
+                    updateSkill={updateSkill}
                     submit={submit}
                     url={url}
                     twitter={twitter}

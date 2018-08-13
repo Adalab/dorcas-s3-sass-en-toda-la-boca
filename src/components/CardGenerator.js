@@ -39,7 +39,10 @@ class CardGenerator extends Component {
     this.fileInput = React.createRef();
     this.handleClickInput = this.handleClickInput.bind(this);
     this.handleInputFile = this.handleInputFile.bind(this);
+    this.handleSkills = this.handleSkills.bind(this);
     this.handleAddSkills = this.handleAddSkills.bind(this);
+    //this.handleUpdateSkill = this.handleUpdateSkill.bind(this);
+    this.handleRemoveSkills = this.handleRemoveSkills.bind(this);
     this.handleResetButton = this.handleResetButton.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleTwitter = this.handleTwitter.bind(this);
@@ -257,18 +260,44 @@ class CardGenerator extends Component {
     })
   }
 
-  handleAddSkills(event) {
-    console.log('if class === + haz esto:');
+  handleSkills(isAdd, index) {
+    if (isAdd) this.handleAddSkills();
+    if (!isAdd) this.handleRemoveSkills(index);
+    console.log('divSkills cuando añade o quita', this.state.divSkills)
+    console.log('isAdd', isAdd);
+    console.log('index en cardgenerator', index);
+  }
+
+  handleAddSkills() {
     if (this.state.divSkills.length < 3) {
       this.setState({
         countSkills: this.state.countSkills + 1,
         divSkills: [...this.state.divSkills, this.state.countSkills],
       })
-    } else {
-      alert('Ey no puedes poner mas de 3 habilidades!!');
     }
-    console.log('else haz esto: this.setState');
   }
+
+  handleRemoveSkills(indexRest) {
+    console.log('antes de restar', this.state.countSkills)
+    this.setState({
+      countSkills: this.state.countSkills - 1,
+      divSkills: this.state.divSkills.splice(indexRest, 2),
+    }, () => console.log('después de restar', this.state.countSkills))
+    console.log('quito', indexRest)
+  }
+
+  // handleUpdateSkill(event) {
+  //   // console.log('index de update', index);
+  //   console.log('event value', event);
+  //   console.log('skills', this.state.data.skills);
+
+  //   this.setState({
+  //     data: {
+  //       ...this.state.data,
+  //       skills: event.target.value,
+  //     }
+  //   })
+  // }
 
   handleTwitter(event) {
     const twitterURL = this.state.url
@@ -280,9 +309,8 @@ class CardGenerator extends Component {
 
   handleSubmit(event) {
     console.log('tarjeta creada');
-    console.log("data", this)
+    console.log('data', this);
     event.preventDefault();
-
     const jason = this.state.data;
     console.log("json", jason)
     fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
@@ -303,17 +331,18 @@ class CardGenerator extends Component {
       .catch(function (error) {
         console.log(error);
       });
-
-
   }
 
-
   render() {
-
-    const { data, skills } = this.state;
-    // console.log('aqui???',skills);
+    // console.log('estado de las skills cuando se renderiza', this.state.divSkills);
+    const {
+      data,
+      skills,
+      divSkills,
+    } = this.state;
+    //console.log('skills???',skills);
     //console.log('this app', this.handleActions)
-    // console.log('this.stateeeeee1',this.state);
+    // console.log('this.stateeeeee1', this.state);
     return (
       <div className="page__wrapper">
         <Header />
@@ -323,14 +352,14 @@ class CardGenerator extends Component {
           data={data}
           skills={skills}
           addSkills={this.handleAddSkills}
-          divSkills={this.state.divSkills}
+          divSkills={divSkills}
+          //updateSkill={this.handleUpdateSkill}
           actionToPerform={this.handleActions()}
           chargeImage={this.handleImage()}
           inputImage={this.fileInput}
           handleRadioColorClick={this.handleRadioColorClick}
           handleRadioFontClick={this.handleRadioFontClick}
           handleResetButton={this.handleResetButton}
-          handleRadioFontClick={this.handleRadioFontClick}
           submit={this.handleSubmit}
           url={this.state.url}
           twitter={this.handleTwitter}

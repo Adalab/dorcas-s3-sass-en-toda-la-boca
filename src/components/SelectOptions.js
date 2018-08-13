@@ -3,11 +3,20 @@ import React from 'react';
 
 class SelectOptions extends React.Component {
     render(){
-        const {skills} = this.props;
+        const {
+            skills, 
+            updateSkill,
+            buttonIndex,
+        } = this.props;
+        console.log('buttonIndex', buttonIndex);
         return(
-            <select className="skills--stuffed" name="" id="">
+            <select 
+                className="skills--stuffed" 
+                name="" 
+                id="" 
+                onChange={() => updateSkill(buttonIndex) }>
                 {skills.map(function(skill,index){
-                    return(<option value="" key={index}>{skill}</option>);
+                    return(<option value={skill} key={index}>{skill}</option>);
                 })}
             </select>
         );
