@@ -264,17 +264,17 @@ class CardGenerator extends Component {
   }
 
   handleUpdateSkill(event){
-    // console.log('index de update', index);
-    console.log('event value',event.target.value);
-    // console.log('skills', this.state.data.skills);
-    let newArraySkills=[];
-    // newArraySkills=event.target.value;
-    this.setState({
-        data: {
-          ...this.state.data,
-          skills: newArraySkills
-        }
-    })
+    // // console.log('index de update', index);
+    // console.log('event value',event.target.value);
+    // // console.log('skills', this.state.data.skills);
+    // let newArraySkills=[];
+    // // newArraySkills=event.target.value;
+    // this.setState({
+    //     data: {
+    //       ...this.state.data,
+    //       skills: newArraySkills
+    //     }
+    // })
   }
 
   handleSubmit(event) {
@@ -303,7 +303,7 @@ class CardGenerator extends Component {
         console.log(error);
     });
   }
-  
+
   handleRemoveSkills(indexRest) {
     console.log('antes de restar', this.state.countSkills)
     this.setState({
