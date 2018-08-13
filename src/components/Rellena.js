@@ -19,7 +19,7 @@ class Rellena extends React.Component {
       updateSkill,
     } = this.props;
 
-    console.log('props', this.props)
+    // console.log('props', this.props)
 
     return (
       <Colapsable title='Rellena' iconClass='far fa-keyboard'>

@@ -237,9 +237,9 @@ class CardGenerator extends Component {
     }
   }
 
-  handleUpdateSkill(event){
-    
-    console.log('event value',event.target.value);
+  handleUpdateSkill(event,index){
+    console.log('index de update', index);
+    // console.log('event value',event.target.value);
     console.log('skills', this.state.data.skills);
     const newArraySkills=[];
     // const newArraySkills[index]=event.target.value;
@@ -260,7 +260,7 @@ class CardGenerator extends Component {
   }
 
   render() {
-    console.log('estado de las skills cuando se renderiza', this.state.divSkills)
+    // console.log('estado de las skills cuando se renderiza', this.state.divSkills);
     const { 
       data, 
       skills, 
