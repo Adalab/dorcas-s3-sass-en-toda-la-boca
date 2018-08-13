@@ -12,7 +12,7 @@ class Main extends Component {
         const {divSkills}=this.props;
         const {classMinus, classPlus} = this.props;        
         const {handleResetButton}= this.props;
-        const {handleRadioColorClick, handleRadioFontClick, submit, url} = this.props;
+        const {handleRadioColorClick, handleRadioFontClick, submit, url, twitter} = this.props;
         //console.log('this main', actionToPerform)
         // console.log('this.stateeeeee2',this.props);
         return(
@@ -36,6 +36,7 @@ class Main extends Component {
                     handleRadioFontClick= {handleRadioFontClick}
                     submit ={submit}
                     url={url}
+                    twitter= {twitter}
                 />
             </div>
         )
