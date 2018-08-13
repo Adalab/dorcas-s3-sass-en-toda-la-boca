@@ -52,7 +52,7 @@ class CardGenerator extends Component {
       .then(this.returnSkillsInjson);
   }
 
-  handleResetButton(event) {
+  handleResetButton() {
     console.log('reset tarjeta');
     this.setState({
         data:{
@@ -65,7 +65,7 @@ class CardGenerator extends Component {
             phone: "",
             photo: "",
             typography: "2",
-            skills: ['HTML','git'],
+            skills: ['skill-1', 'skill-2', 'skill-3'],
         }
     })
   }
@@ -273,7 +273,7 @@ class CardGenerator extends Component {
           inputImage = {this.fileInput}
           handleRadioColorClick= {this.handleRadioColorClick} 
           handleRadioFontClick= {this.handleRadioFontClick}
-          handleResetButton={this.props.handleResetButton} 
+          handleResetButton={this.handleResetButton} 
  
           />
       </div>

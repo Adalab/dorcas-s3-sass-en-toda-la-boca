@@ -12,11 +12,16 @@ class Main extends Component {
         const {divSkills}=this.props;
         const {classMinus, classPlus} = this.props;
         const {handleRadioColorClick, handleRadioFontClick} = this.props;
+        const {handleResetButton}= this.props;
         //console.log('this main', actionToPerform)
         console.log('this.stateeeeee2',this.props);
         return(
             <div className="main__target">
-                <Preview data={data}/>
+                <Preview 
+                    data={data}
+                    handleResetButton={handleResetButton} 
+
+                    />
                 <Form 
                     classPlus = {classPlus}
                     classMinus={classMinus}
@@ -29,7 +34,6 @@ class Main extends Component {
                     inputImage = {inputImage}
                     handleRadioColorClick= {handleRadioColorClick}
                     handleRadioFontClick= {handleRadioFontClick}
-                    handleResetButton={this.props.handleResetButton} 
                 />
             </div>
         )
