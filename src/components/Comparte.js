@@ -5,20 +5,12 @@ class Comparte extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleShareCardButton = this.handleShareCardButton.bind(this);
-    this.handleCreateCardButton = this.handleCreateCardButton.bind(this);
   }
 
-  handleShareCardButton() {
-    console.log('comparte tarjeta');
-  }
-
-  handleCreateCardButton(){
-    console.log('crea tarjeta');
-  }
+ 
 
   render() {
-    const {submit,  url}= this.props;
+    const {submit,  url, twitter, twitterUrl}= this.props;
     return (
       <Colapsable title='Comparte' iconClass='fas fa-share-alt'>
         <div className="collapsible__content">
@@ -33,8 +25,8 @@ class Comparte extends React.Component {
             </div>
             <p className="response"><a href={url}>{url}</a></p>
             <div className="container__btn-twitter">
-              <button className="btn-twitter" onClick={this.handleShareCardButton}>
-                <i className="fab fa-twitter"></i> <a className="url-twitter link-twitter" href="" target="_blank">Compartir en twitter</a>
+              <button className="btn-twitter" onClick={twitter}>
+                <i className="fab fa-twitter"></i> <a className="url-twitter link-twitter" href={twitterUrl} target="_blank">Compartir en twitter</a>
               </button>
             </div>
           </div>

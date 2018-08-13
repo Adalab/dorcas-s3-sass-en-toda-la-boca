@@ -25,6 +25,7 @@ class CardGenerator extends Component {
       classPlus:'fas fa-plus',
       classMinus:'fas fa-minus',
       url: '',
+      twitter: '',
     };
     this.returnSkillsInjson = this.returnSkillsInjson.bind(this);
     this.handleRadioColorClick = this.handleRadioColorClick.bind(this);
@@ -41,6 +42,7 @@ class CardGenerator extends Component {
     this.handleAddSkills = this.handleAddSkills.bind(this);
     this.handleResetButton = this.handleResetButton.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleTwitter = this.handleTwitter.bind(this);
   }
 
   componentDidMount() {
@@ -69,6 +71,7 @@ class CardGenerator extends Component {
 
   handleResetButton() {
     console.log('reset tarjeta');
+    localStorage.clear()
     this.setState({
         data:{
             email: "",
@@ -266,6 +269,14 @@ class CardGenerator extends Component {
     }
     console.log('else haz esto: this.setState');
   }
+
+  handleTwitter(event) {
+    const twitterURL = this.state.url
+    this.setState({
+        twitter: `https://twitter.com/intent/tweet?url=${twitterURL}&text=Acabo%20de%20crear%20mi%20tarjeta%20con%20Font%20Awesome%20de%20Sass%20en%20toda%20la%20boca!&hashtags=WomenInTech`
+    })
+    console.log('twitter', twitterURL)
+}
   
 /////////////////////////create tarjeta ///////////////////////////////
 handleSubmit(event) {
@@ -325,6 +336,8 @@ handleSubmit(event) {
           handleRadioFontClick= {this.handleRadioFontClick} 
           submit ={this.handleSubmit}
           url ={this.state.url}
+          twitter= {this.handleTwitter}
+          twitterUrl = {this.state.twitter}
           />
       </div>
     );

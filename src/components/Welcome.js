@@ -22,7 +22,7 @@ class Welcome extends Component {
                         <li className="list__element"><i className="fas fa-share-alt list__element--icon"></i>Comparte</li>
                     </ul>
                     <Link to='/cardgenerator'>
-                        <a className="button--start">comenzar</a>
+                        <span className="button--start">comenzar</span>
                     </Link>
                 </main>
             </div>
