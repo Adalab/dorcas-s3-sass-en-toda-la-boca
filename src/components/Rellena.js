@@ -2,6 +2,7 @@ import React from 'react';
 import Colapsable from './Colapsable';
 import Skills from './Skills';
 import PropTypes from 'prop-types';
+import sassLogo from '../images/sass_logo.svg';
 
 class Rellena extends React.Component {
 
@@ -17,6 +18,8 @@ class Rellena extends React.Component {
       divSkills,
       updateSkill,
     } = this.props;
+
+    console.log('props', this.props)
 
     return (
       <Colapsable title='Rellena' iconClass='far fa-keyboard'>
@@ -34,7 +37,7 @@ class Rellena extends React.Component {
             <button className="input--stuffed__img " type="button" onClick={chargeImage.click} >Añadir imagen</button>
             <input className="input__img-hiddenField" name="photo" id="img--profile" type="file" ref={inputImage} onChange={chargeImage.input} required />
             <div className="box--previmg">
-              <img className="preview" src={data.photo || "https://picsum.photos/240/200"} alt="preview" />
+              <img className="preview" src={data.photo || sassLogo} alt="preview" />
             </div>
           </div>
 

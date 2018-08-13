@@ -9,7 +9,7 @@ class CardGenerator extends Component {
     this.state = {
       data: {
         palette: 1,
-        typography: 4,
+        typography: 1,
         name: '',
         job: '',
         phone: '',
@@ -21,9 +21,11 @@ class CardGenerator extends Component {
       },
       skills: [],
       countSkills: 1,
-      divSkills: [1],
+      divSkills: [0],
     };
     this.returnSkillsInjson = this.returnSkillsInjson.bind(this);
+    this.handleRadioColorClick = this.handleRadioColorClick.bind(this);
+    this.handleRadioFontClick = this.handleRadioFontClick.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleJobChange = this.handleJobChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -33,11 +35,87 @@ class CardGenerator extends Component {
     this.fileInput = React.createRef();
     this.handleClickInput = this.handleClickInput.bind(this);
     this.handleInputFile = this.handleInputFile.bind(this);
+    this.handleSkills = this.handleSkills.bind(this);
     this.handleAddSkills = this.handleAddSkills.bind(this);
     this.handleUpdateSkill = this.handleUpdateSkill.bind(this);
+    this.handleRemoveSkills = this.handleRemoveSkills.bind(this);
   }
 
-  handleNameChange(event) {
+  componentDidMount() {
+    fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
+    
+      .then(function (response) {
+        return response.json();
+      }
+      )
+      .then(this.returnSkillsInjson);
+  }
+
+  handleRadioColorClick(event){
+    if(event.target.value === '1'){
+      this.setState((prevState) => ({
+        data: {
+          ...prevState.data,
+          palette: 1
+        }
+      }))
+    } else if(event.target.value === '2'){
+      this.setState((prevState) => ({
+        data: {
+          ...prevState.data,
+          palette: 2
+        }
+      }))
+    } else if(event.target.value === '3'){
+      this.setState((prevState) => ({
+        data: {
+          ...prevState.data,
+          palette: 3
+        }
+      }))
+    } else if(event.target.value === '4'){
+      this.setState((prevState) => ({
+        data: {
+          ...prevState.data,
+          palette: 4
+        }
+      }))
+    }
+  }
+
+  handleRadioFontClick(event){
+    if(event.target.value === '1'){
+      this.setState((prevState) => ({
+        data: {
+          ...prevState.data,
+          typography: 1
+        }
+      }))
+    } else if(event.target.value === '2'){
+      this.setState((prevState) => ({
+        data: {
+          ...prevState.data,
+          typography: 2
+        }
+      }))
+    } else if(event.target.value === '3'){
+      this.setState((prevState) => ({
+        data: {
+          ...prevState.data,
+          typography: 3
+        }
+      }))
+    } else if(event.target.value === '4'){
+      this.setState((prevState) => ({
+        data: {
+          ...prevState.data,
+          typography: 4
+        }
+      }))
+    }
+  }
+
+  handleNameChange (event) {
     console.log('this event', event.target.value);
 
     this.setState({
@@ -135,17 +213,6 @@ class CardGenerator extends Component {
     return chargeImage;
   }
 
-  componentDidMount() {
-    fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
-
-      .then(function (response) {
-        return response.json();
-      }
-      )
-      .then(this.returnSkillsInjson);
-  }
-
-
   returnSkillsInjson(json) {
     // console.log(json.skills);
     this.setState({
@@ -153,8 +220,15 @@ class CardGenerator extends Component {
     })
   }
 
-  handleAddSkills(isAdd = true, index) {
-    if (!isAdd) console.log('index', index)
+  handleSkills(isAdd, index) {
+    if (isAdd) this.handleAddSkills();
+    if (!isAdd) this.handleRemoveSkills(index);
+    console.log('divSkills cuando añade o quita', this.state.divSkills)
+    console.log('isAdd', isAdd);
+    console.log('index', index);
+  }
+
+  handleAddSkills() {
     if (this.state.divSkills.length < 3) {
       this.setState({
         countSkills: this.state.countSkills + 1,
@@ -177,10 +251,22 @@ class CardGenerator extends Component {
     })
 }
 
-  render() {
+  handleRemoveSkills(indexRest) {
+    this.setState({
+      countSkills: this.state.countSkills - 1,
+      divSkills: this.state.divSkills.splice(indexRest, 1),
+    })
+    console.log('quito', indexRest)
+  }
 
-    const { data, skills } = this.state;
-    // console.log('aqui???',skills);
+  render() {
+    console.log('estado de las skills cuando se renderiza', this.state.divSkills)
+    const { 
+      data, 
+      skills, 
+      divSkills 
+    } = this.state;
+    //console.log('skills???',skills);
     //console.log('this app', this.handleActions)
     // console.log('this.stateeeeee1', this.state);
     return (
@@ -192,10 +278,12 @@ class CardGenerator extends Component {
           addSkills={this.handleAddSkills}
           updateSkill={this.handleUpdateSkill}
           divSkills={this.state.divSkills}
-          actionToPerform={this.handleActions()}
-          chargeImage={this.handleImage()}
-          inputImage={this.fileInput}
-           />
+          actionToPerform = {this.handleActions()} 
+          chargeImage = {this.handleImage()} 
+          inputImage = {this.fileInput}
+          handleRadioColorClick= {this.handleRadioColorClick} 
+          handleRadioFontClick= {this.handleRadioFontClick} 
+          />
       </div>
     );
   }

@@ -24,6 +24,7 @@ class Skills extends React.Component {
             updateSkill,
         } = this.props;
 
+        console.log('div skills antes de pintarse', this.props.divSkills)
         return (
             <div>
                 {divSkills.map((valor, i) => {
