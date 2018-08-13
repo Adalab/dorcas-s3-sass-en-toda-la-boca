@@ -71,6 +71,7 @@ class CardGenerator extends Component {
 
   handleResetButton() {
     console.log('reset tarjeta');
+    localStorage.clear()
     this.setState({
         data:{
             email: "",
