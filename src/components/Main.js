@@ -13,7 +13,7 @@ class Main extends Component {
         const {classMinus, classPlus} = this.props;
         const {handleRadioColorClick, handleRadioFontClick, submit, url} = this.props;
         //console.log('this main', actionToPerform)
-        console.log('this.stateeeeee2',this.props);
+        // console.log('this.stateeeeee2',this.props);
         return(
             <div className="main__target">
                 <Preview data={data}/>

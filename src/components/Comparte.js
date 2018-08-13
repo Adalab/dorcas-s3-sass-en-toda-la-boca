@@ -2,6 +2,20 @@ import React from 'react';
 import Colapsable from './Colapsable';
 
 class Comparte extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleShareCardButton = this.handleShareCardButton.bind(this);
+    this.handleCreateCardButton = this.handleCreateCardButton.bind(this);
+  }
+
+  handleShareCardButton() {
+    console.log('comparte tarjeta');
+  }
+
+  handleCreateCardButton(){
+    console.log('crea tarjeta');
+  }
 
   render() {
     const {submit,  url}= this.props;

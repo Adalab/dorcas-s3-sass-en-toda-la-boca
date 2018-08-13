@@ -42,6 +42,15 @@ class CardGenerator extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  // componentDidMount(){
+  //   const {name, job, phone, email, linedin, github, photo} = this.state;
+  //   if(!name && !job && !phone && !email && !linedin && !github && !photo ){
+  //     // localStorage.getItem(){
+        
+  //     // }
+  //     console.log('todo esta vacio!');
+  //   } 
+  // }
   componentDidMount() {
     fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
     
@@ -50,6 +59,20 @@ class CardGenerator extends Component {
       }
       )
       .then(this.returnSkillsInjson);
+    }
+
+  componentWillMount(){
+    if (localStorage.getItem('data')){
+      this.setState({
+        data: JSON.parse(localStorage.getItem('data')),
+      })
+    } else {
+      console.log('Bienvenido');
+    }
+  }
+
+  componentWillUpdate(nextProps, nextState){
+    localStorage.setItem('data', JSON.stringify(nextState.data));
   }
 
   handleRadioColorClick(event){
@@ -215,7 +238,7 @@ class CardGenerator extends Component {
   }
 
   returnSkillsInjson(json) {
-    console.log(json.skills);
+    // console.log(json.skills);
     this.setState({
       skills: json.skills,
     })
@@ -268,11 +291,11 @@ handleSubmit(event) {
 
 
   render() {
-    
+
     const {data, skills} = this.state;
     // console.log('aqui???',skills);
     //console.log('this app', this.handleActions)
-    console.log('this.stateeeeee1',this.state);
+    // console.log('this.stateeeeee1',this.state);
     return (
       <div className="page__wrapper">
         <Header />
