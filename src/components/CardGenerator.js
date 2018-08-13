@@ -314,7 +314,7 @@ class CardGenerator extends Component {
   }
 
   render() {
-    // console.log('estado de las skills cuando se renderiza', this.state.divSkills);
+    console.log('estado de las skills cuando se renderiza', this.state.data.skills);
     const { 
       data, 
       skills, 
