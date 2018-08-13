@@ -24,6 +24,7 @@ class CardGenerator extends Component {
       divSkills:[1],
       classPlus:'fas fa-plus',
       classMinus:'fas fa-minus',
+      url: '',
     };
     this.returnSkillsInjson = this.returnSkillsInjson.bind(this);
     this.handleRadioColorClick = this.handleRadioColorClick.bind(this);
@@ -38,6 +39,7 @@ class CardGenerator extends Component {
     this.handleClickInput = this.handleClickInput.bind(this);
     this.handleInputFile = this.handleInputFile.bind(this);
     this.handleAddSkills = this.handleAddSkills.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -232,6 +234,39 @@ class CardGenerator extends Component {
     console.log('else haz esto: this.setState');
   }
   
+/////////////////////////create tarjeta ///////////////////////////////
+handleSubmit(event) {
+  console.log('tarjeta creada');
+  console.log("data", this)
+  event.preventDefault();
+  
+  const jason = this.state.data;
+  console.log("json", jason)
+  fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
+      method: 'POST',
+      body: JSON.stringify(jason),
+      headers: {
+          'content-type': 'application/json'
+      }
+  })
+      .then(function (resp) {
+          return resp.json();
+      })
+
+      .then((result) => {
+          const cardURL = result.cardURL
+          this.setState({ url: cardURL }, ()=> console.log('esta la url?', this.state))
+      })
+      .catch(function (error) {
+          console.log(error);
+      });
+
+      
+}
+
+//////////////////////////////////////////////////////////////////////
+
+
   render() {
     
     const {data, skills} = this.state;
@@ -253,6 +288,8 @@ class CardGenerator extends Component {
           inputImage = {this.fileInput}
           handleRadioColorClick= {this.handleRadioColorClick} 
           handleRadioFontClick= {this.handleRadioFontClick} 
+          submit ={this.handleSubmit}
+          url ={this.state.url}
           />
       </div>
     );
