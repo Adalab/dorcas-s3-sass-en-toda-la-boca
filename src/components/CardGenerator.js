@@ -272,7 +272,9 @@ class CardGenerator extends Component {
           chargeImage = {this.handleImage()} 
           inputImage = {this.fileInput}
           handleRadioColorClick= {this.handleRadioColorClick} 
-          handleRadioFontClick= {this.handleRadioFontClick} 
+          handleRadioFontClick= {this.handleRadioFontClick}
+          handleResetButton={this.props.handleResetButton} 
+ 
           />
       </div>
     );
