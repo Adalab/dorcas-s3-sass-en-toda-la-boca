@@ -15,6 +15,8 @@ class Main extends Component {
             updateSkill,
             handleRadioColorClick,
             handleRadioFontClick,
+            submit, 
+            url,
         } = this.props;
         //console.log('this main', actionToPerform)
         // console.log('this.stateeeeee2',this.props);
@@ -32,6 +34,8 @@ class Main extends Component {
                     inputImage = {inputImage}
                     handleRadioColorClick= {handleRadioColorClick}
                     handleRadioFontClick= {handleRadioFontClick}
+                    submit ={submit}
+                    url={url}
                 />
             </div>
         )

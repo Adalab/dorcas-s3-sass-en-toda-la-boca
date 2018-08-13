@@ -8,8 +8,13 @@ class SelectOptions extends React.Component {
             updateSkill,
             buttonIndex,
         } = this.props;
+        console.log('buttonIndex', buttonIndex);
         return(
-            <select className="skills--stuffed" name="" id="" onChange={() => updateSkill(buttonIndex) }>
+            <select 
+                className="skills--stuffed" 
+                name="" 
+                id="" 
+                onChange={() => updateSkill(buttonIndex) }>
                 {skills.map(function(skill,index){
                     return(<option value={skill} key={index}>{skill}</option>);
                 })}

@@ -21,7 +21,10 @@ class CardGenerator extends Component {
       },
       skills: [],
       countSkills: 1,
-      divSkills: [0],
+      divSkills:[1],
+      classPlus:'fas fa-plus',
+      classMinus:'fas fa-minus',
+      url: '',
     };
     this.returnSkillsInjson = this.returnSkillsInjson.bind(this);
     this.handleRadioColorClick = this.handleRadioColorClick.bind(this);
@@ -39,6 +42,7 @@ class CardGenerator extends Component {
     this.handleAddSkills = this.handleAddSkills.bind(this);
     this.handleUpdateSkill = this.handleUpdateSkill.bind(this);
     this.handleRemoveSkills = this.handleRemoveSkills.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -49,6 +53,20 @@ class CardGenerator extends Component {
       }
       )
       .then(this.returnSkillsInjson);
+    }
+
+  componentWillMount(){
+    if (localStorage.getItem('data')){
+      this.setState({
+        data: JSON.parse(localStorage.getItem('data')),
+      })
+    } else {
+      console.log('Bienvenido');
+    }
+  }
+
+  componentWillUpdate(nextProps, nextState){
+    localStorage.setItem('data', JSON.stringify(nextState.data));
   }
 
   handleRadioColorClick(event){
@@ -237,26 +255,53 @@ class CardGenerator extends Component {
     }
   }
 
-  handleUpdateSkill(event,index){
-    console.log('index de update', index);
-    // console.log('event value',event.target.value);
-    console.log('skills', this.state.data.skills);
-    const newArraySkills=[];
-    // const newArraySkills[index]=event.target.value;
-    this.setState({
-        data: {
-          ...this.state.data,
-          skills: newArraySkills
-        }
-    })
-}
-
   handleRemoveSkills(indexRest) {
     this.setState({
       countSkills: this.state.countSkills - 1,
       divSkills: this.state.divSkills.splice(indexRest, 1),
     })
     console.log('quito', indexRest)
+  }
+
+  handleUpdateSkill(event){
+    // console.log('index de update', index);
+    console.log('event value',event.target.value);
+    // console.log('skills', this.state.data.skills);
+    let newArraySkills=[];
+    // newArraySkills=event.target.value;
+    this.setState({
+        data: {
+          ...this.state.data,
+          skills: newArraySkills
+        }
+    })
+  }
+
+  handleSubmit(event) {
+    console.log('tarjeta creada');
+    console.log("data", this)
+    event.preventDefault();
+  
+    const jason = this.state.data;
+    console.log("json", jason)
+    fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
+      method: 'POST',
+      body: JSON.stringify(jason),
+      headers: {
+          'content-type': 'application/json'
+      }
+    })
+    .then(function (resp) {
+        return resp.json();
+    })
+
+    .then((result) => {
+        const cardURL = result.cardURL
+        this.setState({ url: cardURL }, ()=> console.log('esta la url?', this.state))
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
   }
 
   render() {
@@ -283,6 +328,8 @@ class CardGenerator extends Component {
           inputImage = {this.fileInput}
           handleRadioColorClick= {this.handleRadioColorClick} 
           handleRadioFontClick= {this.handleRadioFontClick} 
+          submit ={this.handleSubmit}
+          url ={this.state.url}
           />
       </div>
     );
