@@ -21,23 +21,20 @@ class Preview extends React.Component {
     constructor(props) {
         super(props);
 
-        this.handleResetButton = this.handleResetButton.bind(this);
     }
 
-    handleResetButton() {
-        console.log('reset tarjeta');
-    }
-
+    
     render() {
         // console.log('quiero ver estas this props de preview:',this.props);
         const { palette, typography ,name, job, phone, email, linkedin, github, photo, skills} = this.props.data;
-        // console.log('paletica',palette);
+        const {handleResetButton}=this.props; 
+        console.log('paletica',palette);
         return (
             <div className="main__section-card">
                 <section className="section--top">
                     <div className="section--top-position-center">
                         <div className="section--top--btn">
-                            <button className="button js-button-reset" type="button" name="button" onClick={this.handleResetButton}>
+                            <button className="button js-button-reset" type="button" name="button" onClick={handleResetButton}>
                                 <i className="far fa-trash-alt button__icon"></i>
                                 <span>RESET</span>
                             </button>

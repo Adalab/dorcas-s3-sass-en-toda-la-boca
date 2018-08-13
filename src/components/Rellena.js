@@ -14,6 +14,7 @@ class Rellena extends React.Component {
       const {addSkills} =this.props;
       const {divSkills} =this.props;
       const {classMinus, classPlus} = this.props;
+      
         return (
             <Colapsable title='Rellena' iconClass='far fa-keyboard'>
               <div className="collapsible__content">

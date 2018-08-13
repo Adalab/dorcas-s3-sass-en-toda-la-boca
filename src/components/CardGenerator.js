@@ -39,18 +39,10 @@ class CardGenerator extends Component {
     this.handleClickInput = this.handleClickInput.bind(this);
     this.handleInputFile = this.handleInputFile.bind(this);
     this.handleAddSkills = this.handleAddSkills.bind(this);
+    this.handleResetButton = this.handleResetButton.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // componentDidMount(){
-  //   const {name, job, phone, email, linedin, github, photo} = this.state;
-  //   if(!name && !job && !phone && !email && !linedin && !github && !photo ){
-  //     // localStorage.getItem(){
-        
-  //     // }
-  //     console.log('todo esta vacio!');
-  //   } 
-  // }
   componentDidMount() {
     fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
     
@@ -73,6 +65,24 @@ class CardGenerator extends Component {
 
   componentWillUpdate(nextProps, nextState){
     localStorage.setItem('data', JSON.stringify(nextState.data));
+  }
+
+  handleResetButton() {
+    console.log('reset tarjeta');
+    this.setState({
+        data:{
+            email: "",
+            github: "",
+            job: "",
+            linkedin: "",
+            name: "",
+            palette: "1",
+            phone: "",
+            photo: "",
+            typography: "2",
+            skills: ['skill-1', 'skill-2', 'skill-3'],
+        }
+    })
   }
 
   handleRadioColorClick(event){
@@ -310,6 +320,8 @@ handleSubmit(event) {
           chargeImage = {this.handleImage()} 
           inputImage = {this.fileInput}
           handleRadioColorClick= {this.handleRadioColorClick} 
+          handleRadioFontClick= {this.handleRadioFontClick}
+          handleResetButton={this.handleResetButton}  
           handleRadioFontClick= {this.handleRadioFontClick} 
           submit ={this.handleSubmit}
           url ={this.state.url}
