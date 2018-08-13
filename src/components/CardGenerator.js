@@ -21,9 +21,9 @@ class CardGenerator extends Component {
       },
       skills: [],
       countSkills: 1,
-      divSkills:[1],
-      classPlus:'fas fa-plus',
-      classMinus:'fas fa-minus',
+      divSkills: [1],
+      classPlus: 'fas fa-plus',
+      classMinus: 'fas fa-minus',
       url: '',
       twitter: '',
     };
@@ -47,16 +47,16 @@ class CardGenerator extends Component {
 
   componentDidMount() {
     fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
-    
+
       .then(function (response) {
         return response.json();
       }
       )
       .then(this.returnSkillsInjson);
-    }
+  }
 
-  componentWillMount(){
-    if (localStorage.getItem('data')){
+  componentWillMount() {
+    if (localStorage.getItem('data')) {
       this.setState({
         data: JSON.parse(localStorage.getItem('data')),
       })
@@ -65,7 +65,7 @@ class CardGenerator extends Component {
     }
   }
 
-  componentWillUpdate(nextProps, nextState){
+  componentWillUpdate(nextProps, nextState) {
     localStorage.setItem('data', JSON.stringify(nextState.data));
   }
 
@@ -73,44 +73,44 @@ class CardGenerator extends Component {
     console.log('reset tarjeta');
     localStorage.clear()
     this.setState({
-        data:{
-            email: "",
-            github: "",
-            job: "",
-            linkedin: "",
-            name: "",
-            palette: "1",
-            phone: "",
-            photo: "",
-            typography: "2",
-            skills: ['skill-1', 'skill-2', 'skill-3'],
-        }
+      data: {
+        email: "",
+        github: "",
+        job: "",
+        linkedin: "",
+        name: "",
+        palette: "1",
+        phone: "",
+        photo: "",
+        typography: "2",
+        skills: ['skill-1', 'skill-2', 'skill-3'],
+      }
     })
   }
 
-  handleRadioColorClick(event){
-    if(event.target.value === '1'){
+  handleRadioColorClick(event) {
+    if (event.target.value === '1') {
       this.setState((prevState) => ({
         data: {
           ...prevState.data,
           palette: 1
         }
       }))
-    } else if(event.target.value === '2'){
+    } else if (event.target.value === '2') {
       this.setState((prevState) => ({
         data: {
           ...prevState.data,
           palette: 2
         }
       }))
-    } else if(event.target.value === '3'){
+    } else if (event.target.value === '3') {
       this.setState((prevState) => ({
         data: {
           ...prevState.data,
           palette: 3
         }
       }))
-    } else if(event.target.value === '4'){
+    } else if (event.target.value === '4') {
       this.setState((prevState) => ({
         data: {
           ...prevState.data,
@@ -120,29 +120,29 @@ class CardGenerator extends Component {
     }
   }
 
-  handleRadioFontClick(event){
-    if(event.target.value === '1'){
+  handleRadioFontClick(event) {
+    if (event.target.value === '1') {
       this.setState((prevState) => ({
         data: {
           ...prevState.data,
           typography: 1
         }
       }))
-    } else if(event.target.value === '2'){
+    } else if (event.target.value === '2') {
       this.setState((prevState) => ({
         data: {
           ...prevState.data,
           typography: 2
         }
       }))
-    } else if(event.target.value === '3'){
+    } else if (event.target.value === '3') {
       this.setState((prevState) => ({
         data: {
           ...prevState.data,
           typography: 3
         }
       }))
-    } else if(event.target.value === '4'){
+    } else if (event.target.value === '4') {
       this.setState((prevState) => ({
         data: {
           ...prevState.data,
@@ -152,9 +152,9 @@ class CardGenerator extends Component {
     }
   }
 
-  handleNameChange (event) {
+  handleNameChange(event) {
     console.log('this event', event.target.value);
-    
+
     this.setState({
       data: {
         ...this.state.data,
@@ -163,7 +163,7 @@ class CardGenerator extends Component {
     })
   }
 
-  handleJobChange (event) {
+  handleJobChange(event) {
     this.setState({
       data: {
         ...this.state.data,
@@ -172,7 +172,7 @@ class CardGenerator extends Component {
     })
   }
 
-  handleEmailChange (event) {
+  handleEmailChange(event) {
     this.setState({
       data: {
         ...this.state.data,
@@ -181,7 +181,7 @@ class CardGenerator extends Component {
     })
   }
 
-  handleTelChange (event) {
+  handleTelChange(event) {
     this.setState({
       data: {
         ...this.state.data,
@@ -190,7 +190,7 @@ class CardGenerator extends Component {
     })
   }
 
-  handleLinkedinChange (event) {
+  handleLinkedinChange(event) {
     this.setState({
       data: {
         ...this.state.data,
@@ -199,7 +199,7 @@ class CardGenerator extends Component {
     })
   }
 
-  handleGithubChange (event) {
+  handleGithubChange(event) {
     this.setState({
       data: {
         ...this.state.data,
@@ -208,9 +208,9 @@ class CardGenerator extends Component {
     })
   }
 
-  handleActions () {
+  handleActions() {
     const actionToPerform = {
-      name : this.handleNameChange,
+      name: this.handleNameChange,
       job: this.handleJobChange,
       email: this.handleEmailChange,
       phone: this.handleTelChange,
@@ -222,19 +222,19 @@ class CardGenerator extends Component {
 
   handleClickInput(event) {
     console.log('image input', this.fileInput)
-      this.fileInput.current.click()
+    this.fileInput.current.click()
   }
 
-  handleInputFile (event) {
+  handleInputFile(event) {
     const fr = new FileReader();
 
     const loadImage = () => {
-        this.setState ({
-          data: {
-            ...this.state.data,
-            photo: fr.result,
-          }
-          });
+      this.setState({
+        data: {
+          ...this.state.data,
+          photo: fr.result,
+        }
+      });
     }
 
     console.log(event.target.files[0])
@@ -242,7 +242,7 @@ class CardGenerator extends Component {
     fr.readAsDataURL(event.target.files[0]);
   }
 
-  handleImage () {
+  handleImage() {
     const chargeImage = {
       input: this.handleInputFile,
       click: this.handleClickInput,
@@ -257,9 +257,9 @@ class CardGenerator extends Component {
     })
   }
 
-  handleAddSkills(event){
+  handleAddSkills(event) {
     console.log('if class === + haz esto:');
-    if(this.state.divSkills.length < 3){
+    if (this.state.divSkills.length < 3) {
       this.setState({
         countSkills: this.state.countSkills + 1,
         divSkills: [...this.state.divSkills, this.state.countSkills],
@@ -273,69 +273,69 @@ class CardGenerator extends Component {
   handleTwitter(event) {
     const twitterURL = this.state.url
     this.setState({
-        twitter: `https://twitter.com/intent/tweet?url=${twitterURL}&text=Acabo%20de%20crear%20mi%20tarjeta%20con%20Font%20Awesome%20de%20Sass%20en%20toda%20la%20boca!&hashtags=WomenInTech`
+      twitter: `https://twitter.com/intent/tweet?url=${twitterURL}&text=Acabo%20de%20crear%20mi%20tarjeta%20con%20Font%20Awesome%20de%20Sass%20en%20toda%20la%20boca!&hashtags=WomenInTech`
     })
     console.log('twitter', twitterURL)
-}
+  }
 
-handleSubmit(event) {
-  console.log('tarjeta creada');
-  console.log("data", this)
-  event.preventDefault();
-  
-  const jason = this.state.data;
-  console.log("json", jason)
-  fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
+  handleSubmit(event) {
+    console.log('tarjeta creada');
+    console.log("data", this)
+    event.preventDefault();
+
+    const jason = this.state.data;
+    console.log("json", jason)
+    fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
       method: 'POST',
       body: JSON.stringify(jason),
       headers: {
-          'content-type': 'application/json'
+        'content-type': 'application/json'
       }
-  })
+    })
       .then(function (resp) {
-          return resp.json();
+        return resp.json();
       })
 
       .then((result) => {
-          const cardURL = result.cardURL
-          this.setState({ url: cardURL }, ()=> console.log('esta la url?', this.state))
+        const cardURL = result.cardURL
+        this.setState({ url: cardURL }, () => console.log('esta la url?', this.state))
       })
       .catch(function (error) {
-          console.log(error);
+        console.log(error);
       });
 
-      
-}
+
+  }
 
 
   render() {
 
-    const {data, skills} = this.state;
+    const { data, skills } = this.state;
     // console.log('aqui???',skills);
     //console.log('this app', this.handleActions)
     // console.log('this.stateeeeee1',this.state);
     return (
       <div className="page__wrapper">
         <Header />
-        <Main 
+        <Main
           classPlus={this.state.classPlus}
           classMinus={this.state.classMinus}
           data={data}
           skills={skills}
           addSkills={this.handleAddSkills}
           divSkills={this.state.divSkills}
-          actionToPerform = {this.handleActions()} 
-          chargeImage = {this.handleImage()} 
-          inputImage = {this.fileInput}
-          handleRadioColorClick= {this.handleRadioColorClick} 
-          handleRadioFontClick= {this.handleRadioFontClick}
-          handleResetButton={this.handleResetButton}  
-          handleRadioFontClick= {this.handleRadioFontClick} 
-          submit ={this.handleSubmit}
-          url ={this.state.url}
-          twitter= {this.handleTwitter}
-          twitterUrl = {this.state.twitter}
-          />
+          actionToPerform={this.handleActions()}
+          chargeImage={this.handleImage()}
+          inputImage={this.fileInput}
+          handleRadioColorClick={this.handleRadioColorClick}
+          handleRadioFontClick={this.handleRadioFontClick}
+          handleResetButton={this.handleResetButton}
+          handleRadioFontClick={this.handleRadioFontClick}
+          submit={this.handleSubmit}
+          url={this.state.url}
+          twitter={this.handleTwitter}
+          twitterUrl={this.state.twitter}
+        />
       </div>
     );
   }
@@ -343,7 +343,7 @@ handleSubmit(event) {
 
 CardGenerator.propTypes = {
 
-  name:PropTypes.string,
+  name: PropTypes.string,
   job: PropTypes.string,
   phone: PropTypes.number,
   email: PropTypes.string,
