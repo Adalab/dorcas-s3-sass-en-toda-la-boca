@@ -290,7 +290,7 @@ class CardGenerator extends Component {
   //   // console.log('index de update', index);
   //   console.log('event value', event);
   //   console.log('skills', this.state.data.skills);
-    
+
   //   this.setState({
   //     data: {
   //       ...this.state.data,
@@ -347,11 +347,13 @@ class CardGenerator extends Component {
       <div className="page__wrapper">
         <Header />
         <Main
+          classPlus={this.state.classPlus}
+          classMinus={this.state.classMinus}
           data={data}
           skills={skills}
-          addSkills={this.handleSkills}
+          addSkills={this.handleAddSkills}
           divSkills={divSkills}
-          updateSkill={this.handleUpdateSkill}
+          //updateSkill={this.handleUpdateSkill}
           actionToPerform={this.handleActions()}
           chargeImage={this.handleImage()}
           inputImage={this.fileInput}
