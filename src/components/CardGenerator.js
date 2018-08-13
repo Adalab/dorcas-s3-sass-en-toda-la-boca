@@ -37,6 +37,7 @@ class CardGenerator extends Component {
     this.handleInputFile = this.handleInputFile.bind(this);
     this.handleSkills = this.handleSkills.bind(this);
     this.handleAddSkills = this.handleAddSkills.bind(this);
+    this.handleUpdateSkill = this.handleUpdateSkill.bind(this);
     this.handleRemoveSkills = this.handleRemoveSkills.bind(this);
   }
 
@@ -213,7 +214,7 @@ class CardGenerator extends Component {
   }
 
   returnSkillsInjson(json) {
-    console.log(json.skills);
+    // console.log(json.skills);
     this.setState({
       skills: json.skills,
     })
@@ -236,6 +237,20 @@ class CardGenerator extends Component {
     }
   }
 
+  handleUpdateSkill(event){
+    
+    console.log('event value',event.target.value);
+    console.log('skills', this.state.data.skills);
+    const newArraySkills=[];
+    // const newArraySkills[index]=event.target.value;
+    this.setState({
+        data: {
+          ...this.state.data,
+          skills: newArraySkills
+        }
+    })
+}
+
   handleRemoveSkills(indexRest) {
     console.log('antes de restar', this.state.countSkills)
     this.setState({
@@ -254,6 +269,7 @@ class CardGenerator extends Component {
     } = this.state;
     //console.log('skills???',skills);
     //console.log('this app', this.handleActions)
+    // console.log('this.stateeeeee1', this.state);
     return (
       <div className="page__wrapper">
         <Header />
@@ -262,6 +278,7 @@ class CardGenerator extends Component {
           skills={skills}
           addSkills={this.handleSkills}
           divSkills={divSkills}
+          updateSkill={this.handleUpdateSkill}
           actionToPerform = {this.handleActions()} 
           chargeImage = {this.handleImage()} 
           inputImage = {this.fileInput}

@@ -7,7 +7,7 @@ import sassLogo from '../images/sass_logo.svg';
 class Rellena extends React.Component {
 
   render() {
-    
+    // console.log('props', this.props)
     const {
       data,
       skills,
@@ -16,6 +16,7 @@ class Rellena extends React.Component {
       inputImage,
       addSkills,
       divSkills,
+      updateSkill,
     } = this.props;
 
     console.log('props', this.props)
@@ -59,6 +60,7 @@ class Rellena extends React.Component {
 
           <div className="label--stuffed__container-select">
             <Skills
+              updateSkill={updateSkill}
               skills={skills}
               addSkills={addSkills}
               divSkills={divSkills}

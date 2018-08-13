@@ -14,6 +14,7 @@ class CardForm extends React.Component {
             inputImage,
             addSkills,
             divSkills,
+            updateSkill
         } = this.props;
         //console.log('this form', actionToPerform)
         return (
@@ -22,6 +23,7 @@ class CardForm extends React.Component {
                 <form className="form" action="" method="post">
                     <Disena />
                     <Rellena
+                        updateSkill={updateSkill}
                         divSkills={divSkills}
                         addSkills={addSkills}
                         skills={skills}
