@@ -41,7 +41,7 @@ class CardGenerator extends Component {
     this.handleInputFile = this.handleInputFile.bind(this);
     this.handleSkills = this.handleSkills.bind(this);
     this.handleAddSkills = this.handleAddSkills.bind(this);
-    //this.handleUpdateSkill = this.handleUpdateSkill.bind(this);
+    this.handleUpdateSkill = this.handleUpdateSkill.bind(this);
     this.handleRemoveSkills = this.handleRemoveSkills.bind(this);
     this.handleResetButton = this.handleResetButton.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -286,18 +286,18 @@ class CardGenerator extends Component {
     console.log('quito', indexRest)
   }
 
-  // handleUpdateSkill(event) {
-  //   // console.log('index de update', index);
-  //   console.log('event value', event);
-  //   console.log('skills', this.state.data.skills);
+  handleUpdateSkill(event) {
+    // console.log('index de update', index);
+    // console.log('event value', event);
+    // console.log('skills', this.state.data.skills);
 
-  //   this.setState({
-  //     data: {
-  //       ...this.state.data,
-  //       skills: event.target.value,
-  //     }
-  //   })
-  // }
+    // this.setState({
+    //   data: {
+    //     ...this.state.data,
+    //     skills: event.target.value,
+    //   }
+    // })
+  }
 
   handleTwitter(event) {
     const twitterURL = this.state.url
@@ -351,9 +351,9 @@ class CardGenerator extends Component {
           classMinus={this.state.classMinus}
           data={data}
           skills={skills}
-          addSkills={this.handleAddSkills}
+          addSkills={this.handleSkills}
           divSkills={divSkills}
-          //updateSkill={this.handleUpdateSkill}
+          updateSkill={this.handleUpdateSkill}
           actionToPerform={this.handleActions()}
           chargeImage={this.handleImage()}
           inputImage={this.fileInput}
