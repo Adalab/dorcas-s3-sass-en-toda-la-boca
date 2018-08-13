@@ -19,15 +19,21 @@ const typographies ={
 }
 
 class Preview extends React.Component {
-    constructor(props) {
-        super(props);
-
-    }
-
     
     render() {
         // console.log('quiero ver estas this props de preview:',this.props);
-        const { palette, typography ,name, job, phone, email, linkedin, github, photo, skills} = this.props.data;
+        const { 
+            palette, 
+            typography,
+            name, 
+            job, 
+            phone, 
+            email, 
+            linkedin, 
+            github, 
+            photo, 
+            skills
+        } = this.props.data;
         const {handleResetButton}=this.props; 
         console.log('paletica',palette);
         return (

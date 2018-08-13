@@ -2,15 +2,14 @@ import React from 'react';
 import Colapsable from './Colapsable';
 
 class Comparte extends React.Component {
-  constructor(props) {
-    super(props);
-
-  }
-
- 
 
   render() {
-    const {submit,  url, twitter, twitterUrl}= this.props;
+    const {
+      submit,
+      url,
+      twitter,
+      twitterUrl
+    } = this.props;
     return (
       <Colapsable title='Comparte' iconClass='fas fa-share-alt'>
         <div className="collapsible__content">

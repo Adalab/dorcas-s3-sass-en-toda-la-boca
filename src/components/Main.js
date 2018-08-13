@@ -3,41 +3,50 @@ import Form from './Form';
 import Preview from './Preview';
 
 class Main extends Component {
-    render () {
-        const {data,skills} = this.props;
-        const {actionToPerform} = this.props;
-        const {chargeImage} = this.props;
-        const {inputImage} = this.props;
-        const {addSkills}=this.props;
-        const {divSkills}=this.props;
-        const {classMinus, classPlus} = this.props;        
-        const {handleResetButton}= this.props;
-        const {handleRadioColorClick, handleRadioFontClick, submit, url, twitter, twitterUrl} = this.props;
+    render() {
+        const {
+            data,
+            skills,
+            actionToPerform,
+            chargeImage,
+            inputImage,
+            addSkills,
+            divSkills,
+            classMinus,
+            classPlus,
+            handleResetButton,
+            handleRadioColorClick,
+            handleRadioFontClick,
+            submit,
+            url,
+            twitter,
+            twitterUrl,
+        } = this.props;
         //console.log('this main', actionToPerform)
         // console.log('this.stateeeeee2',this.props);
-        return(
+        return (
             <div className="main__target">
-                <Preview 
+                <Preview
                     data={data}
-                    handleResetButton={handleResetButton} 
+                    handleResetButton={handleResetButton}
 
-                    />
-                <Form 
-                    classPlus = {classPlus}
+                />
+                <Form
+                    classPlus={classPlus}
                     classMinus={classMinus}
                     divSkills={divSkills}
                     addSkills={addSkills}
                     skills={skills}
-                    data={data} 
-                    actionToPerform = {actionToPerform} 
-                    chargeImage = {chargeImage}
-                    inputImage = {inputImage}
-                    handleRadioColorClick= {handleRadioColorClick}
-                    handleRadioFontClick= {handleRadioFontClick}
-                    submit ={submit}
+                    data={data}
+                    actionToPerform={actionToPerform}
+                    chargeImage={chargeImage}
+                    inputImage={inputImage}
+                    handleRadioColorClick={handleRadioColorClick}
+                    handleRadioFontClick={handleRadioFontClick}
+                    submit={submit}
                     url={url}
-                    twitter= {twitter}
-                    twitterUrl = {twitterUrl}
+                    twitter={twitter}
+                    twitterUrl={twitterUrl}
                 />
             </div>
         )
