@@ -243,7 +243,7 @@ class CardGenerator extends Component {
     if (!isAdd) this.handleRemoveSkills(index);
     console.log('divSkills cuando añade o quita', this.state.divSkills)
     console.log('isAdd', isAdd);
-    console.log('index', index);
+    console.log('index en cardgenerator', index);
   }
 
   handleAddSkills() {
@@ -303,13 +303,22 @@ class CardGenerator extends Component {
         console.log(error);
     });
   }
+  
+  handleRemoveSkills(indexRest) {
+    console.log('antes de restar', this.state.countSkills)
+    this.setState({
+      countSkills: this.state.countSkills - 1,
+      divSkills: this.state.divSkills.splice(indexRest, 2),
+    }, () => console.log('después de restar', this.state.countSkills))
+    console.log('quito', indexRest)
+  }
 
   render() {
     // console.log('estado de las skills cuando se renderiza', this.state.divSkills);
     const { 
       data, 
       skills, 
-      divSkills 
+      divSkills,
     } = this.state;
     //console.log('skills???',skills);
     //console.log('this app', this.handleActions)
@@ -320,9 +329,9 @@ class CardGenerator extends Component {
         <Main
           data={data}
           skills={skills}
-          addSkills={this.handleAddSkills}
+          addSkills={this.handleSkills}
+          divSkills={divSkills}
           updateSkill={this.handleUpdateSkill}
-          divSkills={this.state.divSkills}
           actionToPerform = {this.handleActions()} 
           chargeImage = {this.handleImage()} 
           inputImage = {this.fileInput}
