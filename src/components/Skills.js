@@ -7,6 +7,8 @@ class Skills extends React.Component {
         super(props);
         
         this.handleUpdateSkill = this.handleUpdateSkill.bind(this);
+
+       
     }
 
     handleButtonClass(index) {
@@ -29,6 +31,7 @@ class Skills extends React.Component {
     }
 
     render() {
+        console.log('estado en skills', this.props.divSkills)
         const {
             skills,
             divSkills,

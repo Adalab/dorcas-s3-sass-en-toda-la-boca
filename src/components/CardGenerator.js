@@ -212,17 +212,6 @@ class CardGenerator extends Component {
     return chargeImage;
   }
 
-  componentDidMount() {
-    fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
-
-      .then(function (response) {
-        return response.json();
-      }
-      )
-      .then(this.returnSkillsInjson);
-  }
-
-
   returnSkillsInjson(json) {
     console.log(json.skills);
     this.setState({
@@ -235,7 +224,7 @@ class CardGenerator extends Component {
     if (!isAdd) this.handleRemoveSkills(index);
     console.log('divSkills cuando añade o quita', this.state.divSkills)
     console.log('isAdd', isAdd);
-    console.log('index', index);
+    console.log('index en cardgenerator', index);
   }
 
   handleAddSkills() {
@@ -248,10 +237,11 @@ class CardGenerator extends Component {
   }
 
   handleRemoveSkills(indexRest) {
+    console.log('antes de restar', this.state.countSkills)
     this.setState({
       countSkills: this.state.countSkills - 1,
-      divSkills: this.state.divSkills.splice(indexRest, 1),
-    })
+      divSkills: this.state.divSkills.splice(indexRest, 2),
+    }, () => console.log('después de restar', this.state.countSkills))
     console.log('quito', indexRest)
   }
 
@@ -260,7 +250,7 @@ class CardGenerator extends Component {
     const { 
       data, 
       skills, 
-      divSkills 
+      divSkills,
     } = this.state;
     //console.log('skills???',skills);
     //console.log('this app', this.handleActions)
@@ -270,8 +260,8 @@ class CardGenerator extends Component {
         <Main
           data={data}
           skills={skills}
-          addSkills={this.handleAddSkills}
-          divSkills={this.state.divSkills}
+          addSkills={this.handleSkills}
+          divSkills={divSkills}
           actionToPerform = {this.handleActions()} 
           chargeImage = {this.handleImage()} 
           inputImage = {this.fileInput}
