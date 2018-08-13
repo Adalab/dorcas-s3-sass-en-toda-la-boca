@@ -3,27 +3,31 @@ import SelectOptions from './SelectOptions';
 import Button from './Button';
 
 class Skills extends React.Component {
- 
-    render (){
-        const {skills,divSkills}=this.props;
-        const {addSkills}=this.props;
-        const {classMinus, classPlus} = this.props;
+
+    render() {
+        const {
+            skills,
+            divSkills,
+            addSkills,
+            classMinus,
+            classPlus
+        } = this.props;
 
         return (
             <div>
-                {divSkills.map( (index)=>{
+                {divSkills.map((index) => {
                     return (
                         <div key={index}>
                             <SelectOptions
                                 skills={skills}
                             />
-                            <Button addSkills={addSkills} 
-                                    classButton={classPlus}/>
+                            <Button addSkills={addSkills}
+                                classButton={classPlus} />
                         </div>);
-                } )}
-             </div>
+                })}
+            </div>
         )
-       
+
     }
 }
 export default Skills;
