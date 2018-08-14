@@ -14,14 +14,19 @@ class CardForm extends React.Component {
             inputImage,
             addSkills,
             divSkills,
-            updateSkill
+            updateSkill, 
+            handleRadioColorClick,
+            handleRadioFontClick,
         } = this.props;
         //console.log('this form', actionToPerform)
         return (
             // clases sin usar en css: "main__section-form" "form"
             <div className="main__section-form">
                 <form className="form" action="" method="post">
-                    <Disena />
+                    <Disena 
+                        handleRadioColorClick={handleRadioColorClick}
+                        handleRadioFontClick={handleRadioFontClick}
+                    />
                     <Rellena
                         updateSkill={updateSkill}
                         divSkills={divSkills}
