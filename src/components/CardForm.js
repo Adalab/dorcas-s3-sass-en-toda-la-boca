@@ -17,6 +17,10 @@ class CardForm extends React.Component {
             updateSkill, 
             handleRadioColorClick,
             handleRadioFontClick,
+            submit,
+            url,
+            twitter,
+            twitterUrl,
         } = this.props;
         //console.log('this form', actionToPerform)
         return (
@@ -37,7 +41,12 @@ class CardForm extends React.Component {
                         chargeImage={chargeImage}
                         inputImage={inputImage}
                     />
-                    <Comparte />
+                    <Comparte 
+                        submit={submit}
+                        url={url}
+                        twitter={twitter}
+                        twitterUrl={twitterUrl}
+                    />
                 </form>
             </div>
         )
